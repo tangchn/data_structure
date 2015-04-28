@@ -44,7 +44,7 @@ void PrintArray(ElemType* array);
 
 void ShellSort(ElemType *array, int n)
 {
-	int gap;
+	int gap = n;
 	int i,j;
 	ElemType temp;
 	while(gap > 1)
