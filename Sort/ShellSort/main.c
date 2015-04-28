@@ -1,7 +1,7 @@
 ﻿#include <stdlib.h>
 #include <stdio.h>
 
-#define ARRAYNUMBER 12
+#define ARRAYNUMBER 10
 typedef int ElemType;
 
 void ShellSort(ElemType *array,int n);
