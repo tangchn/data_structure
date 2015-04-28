@@ -53,7 +53,7 @@ void ShellSort(ElemType *array, int n)
 		for(i = gap; i < n; i++)
 		{
 			temp = array[i];
-			for(j = i - gap; array[j] > temp && j > 0; j -= gap)
+			for(j = i - gap; array[j] > temp && j >= 0; j -= gap)
 			{
 				array[j + gap] = array[j];
 			}
