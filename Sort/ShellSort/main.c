@@ -9,7 +9,7 @@ void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 
 
-void ShellSort(int *array, int n)
+/*void ShellSort(int *array, int n)
 {
     int group, i, j, temp;
     for (group = n / 2; group > 0; group /= 2)
@@ -17,7 +17,7 @@ void ShellSort(int *array, int n)
         for (i = group; i < n; i++)
         {
             //此种方法简单但是效率不高
-            /*for (j = i - group; j >= 0; j -= group)
+            for (j = i - group; j >= 0; j -= group)
             {
                 if (array[j] > array[j + group])
                 {
@@ -25,7 +25,7 @@ void ShellSort(int *array, int n)
                     array[j] = array[j + group];
                     array[j + group] = temp;
                 }
-            }*/
+            }
             if(array[i] < array[i - group])
             {
                 temp = array[i];
@@ -40,6 +40,26 @@ void ShellSort(int *array, int n)
         printf("group = %d 时，数组为：",group);
         PrintArray(array);
     }
+}*/
+
+void ShellSort(ElemType *array, int n)
+{
+	int gap;
+	int i,j;
+	ElemType temp;
+	while(gap > 1)
+	{
+		gap = gap / 3 + 1;
+		for(i = gap; i < end; i++)
+		{
+			temp = array[i];
+			for(j = i - gap; array[j] > temp && j > 0; j -= gap)
+			{
+				array[j + gap] = array[j];
+			}
+			array[j + gap] = temp;
+		}
+	}
 }
 
 void InitalArray(ElemType* array)
