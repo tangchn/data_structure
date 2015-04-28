@@ -35,7 +35,7 @@ void BinaryInsertion(ElemType array[], int n)
 		        if(temp > array[mid])
 		        {
 		                start = mid + 1;
-		        }else(temp < array[mid])
+		        }else if(temp < array[mid])
 		        {
 		                end = mid - 1;
 		        }else
