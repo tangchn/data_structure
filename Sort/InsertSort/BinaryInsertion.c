@@ -29,7 +29,7 @@ void BinaryInsertion(ElemType array[], int n)
 		temp = array[i];
 		start = 0;
 		end = i - 1;
-		while(end >= start)
+		while(end > start)
 		{
 		        mid = start + (end - start) / 2;
 		        if(temp > array[mid])
