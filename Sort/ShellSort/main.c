@@ -1,4 +1,11 @@
-﻿#include <stdlib.h>
+/*************************************************************************
+	> File Name: main.c
+	> Description: 希尔排序
+	> Author: Yves
+	> Mail: mail: me@tangye.me
+	> Created Time: 2015-4-28. 23:50:51
+ ************************************************************************/
+#include <stdlib.h>
 #include <stdio.h>
 
 #define ARRAYNUMBER 10
@@ -8,40 +15,9 @@ void ShellSort(ElemType *array,int n);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 
-
-/*void ShellSort(int *array, int n)
-{
-    int group, i, j, temp;
-    for (group = n / 2; group > 0; group /= 2)
-    {
-        for (i = group; i < n; i++)
-        {
-            //此种方法简单但是效率不高
-            for (j = i - group; j >= 0; j -= group)
-            {
-                if (array[j] > array[j + group])
-                {
-                    temp = array[j];
-                    array[j] = array[j + group];
-                    array[j + group] = temp;
-                }
-            }
-            if(array[i] < array[i - group])
-            {
-                temp = array[i];
-			    //找到一个后面比前面小的，然后开始找位置
-			    for (j = i - group; j >= 0 && array[j] > temp; j-= group)//array[j]必须大于temp才是合适的位置
-                {
-                    array[j + group] = array[j];//元素开始后移
-                }
-			    array[j + group] = temp;
-            }
-        }
-        printf("group = %d 时，数组为：",group);
-        PrintArray(array);
-    }
-}*/
-
+/*
+*很奇怪，运行会报Segmentation fault，但是用gdb调试就不会，怎么回事？
+*/
 void ShellSort(ElemType *array, int n)
 {
 	int gap = n;
@@ -49,7 +25,7 @@ void ShellSort(ElemType *array, int n)
 	ElemType temp;
 	while(gap >= 1)
 	{
-		gap = gap / 2;
+		gap = gap / 3 + 1;
 		for(i = gap; i < n; i++)
 		{
 			temp = array[i];
