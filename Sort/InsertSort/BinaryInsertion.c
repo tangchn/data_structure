@@ -29,7 +29,7 @@ void BinaryInsertion(ElemType array[], int n)
 		temp = array[i];
 		start = 0;
 		end = i - 1;
-		while(end > start)
+		while(end >= start)
 		{
 		        mid = start + (end - start) / 2;
 		        if(temp > array[mid])
@@ -43,7 +43,7 @@ void BinaryInsertion(ElemType array[], int n)
 		                break;
 		        }
 		}
-		for(j = i - 1; j >= mid; j--)//array[j]必须大于temp才是合适的位置
+		for(j = i - 1; j >= end; j--)//array[j]必须大于temp才是合适的位置
 		{
 			array[j+1] = array[j];//元素开始后移		
 		}
