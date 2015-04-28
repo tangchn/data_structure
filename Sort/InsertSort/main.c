@@ -8,7 +8,7 @@ void Insertsort(ElemType *array,int n);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 
-void Insertsort(ElemType array[], int n)
+/*void Insertsort(ElemType array[], int n)
 {
 	int i, j;
 	for (i = 1; i < n; i++)
@@ -23,12 +23,27 @@ void Insertsort(ElemType array[], int n)
 			array[j + 1] = temp;
 		}
 		//还有一种方法,但是这种貌似效率不好
-		/*for(j = i - 1; j >=0 && array[j] > array[j+1]; j--)
+	/*for(j = i - 1; j >=0 && array[j] > array[j+1]; j--)
         {
             int temp = array[j];
             array[j] = array[j+1];
             array[j+1] = temp;
         }*/
+}*/
+
+void Insertsort(ElemType array[], int n)
+{
+	int i,j;
+	ElemType temp;
+	for(i = 1; i < n; i++)
+	{
+		temp = array[i];
+		for(j = i - 1; j >= 0 && array[j] < array[i]; j--)
+		{
+			array[j+1] = array[j];		
+		}
+		array[j+1] = temp;
+	}
 }
 
 void InitalArray(ElemType* array)
