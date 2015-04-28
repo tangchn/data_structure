@@ -47,7 +47,7 @@ void BinaryInsertion(ElemType array[], int n)
 		{
 			array[j+1] = array[j];//元素开始后移		
 		}
-		array[j+1] = temp;
+		array[end] = temp;
 	}
 	//还有一种方法,但是这种貌似效率不好
 	/*for(j = i - 1; j >=0 && array[j] > array[j+1]; j--)
