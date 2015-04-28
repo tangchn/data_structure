@@ -29,6 +29,8 @@ void BinaryInsertion(ElemType array[], int n)
 		temp = array[i];
 		start = 0;
 		end = i - 1;
+		//通过折中查找得到的start为temp值应该插入的位置
+		//如1，4，5，17，26，33中，27经过折中查找后位置为5
 		while(end >= start)
 		{
 		        mid = start + (end - start) / 2;
