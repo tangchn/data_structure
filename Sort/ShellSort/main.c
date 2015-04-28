@@ -49,7 +49,7 @@ void ShellSort(ElemType *array, int n)
 	ElemType temp;
 	while(gap > 1)
 	{
-		gap = gap / 3 + 1;
+		gap = gap / 2;
 		for(i = gap; i < n; i++)
 		{
 			temp = array[i];
