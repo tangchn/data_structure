@@ -43,11 +43,11 @@ void BinaryInsertion(ElemType array[], int n)
 		                break;
 		        }
 		}
-		for(j = i - 1; j >= end; j--)//array[j]必须大于temp才是合适的位置
+		for(j = i - 1; j >= start; j--)//array[j]必须大于temp才是合适的位置
 		{
 			array[j+1] = array[j];//元素开始后移		
 		}
-		array[end] = temp;
+		array[start] = temp;
 	}
 	//还有一种方法,但是这种貌似效率不好
 	/*for(j = i - 1; j >=0 && array[j] > array[j+1]; j--)
