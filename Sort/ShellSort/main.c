@@ -23,7 +23,7 @@ void ShellSort(ElemType *array, int n)
 	int gap = n;
 	int i,j;
 	ElemType temp;
-	while(gap >= 1)
+	while(gap > 1)
 	{
 		gap = gap / 3 + 1;
 		for(i = gap; i < n; i++)
