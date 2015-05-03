@@ -48,43 +48,47 @@ void PrintArray(ElemType* array)
     printf("\n");
 }
 
-void BubbleSort(int* array)
+
+void BubbleSort(ElemType* array)
 {
-    int i,j,temp;
+    int i,j;
+    ElemType temp;
+    for(i = 0; i < ARRAYNUMBER; i ++)
+    {
+    	for(j = i + 1; j < ARRAYNUMBER; j++)
+    	{
+    		if(array[i] > array[j])
+    		{
+    			temp = array[i];
+    			array[i] = array[j];
+    			array[j] = temp;
+    		}
+    	}
+    }
+}
+/*这才是“冒泡”吧*/
+void BubbleSort2(ElemType* array)
+{
+    int i,j;
+    ElemType temp;
     for(i = 0; i < ARRAYNUMBER; i++)
     {
-        for(j = i + 1; j < ARRAYNUMBER; j++)
-        {
-            if(array[i] > array[j])
-            {
-                temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-        }
+    	for(j = ARRAYNUMBER -1; j > i; j--)
+    	{
+    		if(array[j-1] > array[j])
+    		{
+    			temp = array[j];
+    			array[j] = array[j-1];
+    			array[j-1] = temp;
+    		}
+    	}
     }
 }
 
-void BubbleSort2(int* array)
+void BubbleSort3(ElemType* array)
 {
-    int i,j,temp;
-    for(i = 0; i < ARRAYNUMBER; i++)
-    {
-        for(j = ARRAYNUMBER - 1; j > i; j--)
-        {
-            if(array[j-1] > array[j])
-            {
-                temp = array[j];
-                array[j] = array[j-1];
-                array[j-1] = temp;
-            }
-        }
-    }
-}
-
-void BubbleSort3(int* array)
-{
-    int i,j,temp,flag;
+    int i,j,flag;
+    ElemType temp;
     flag = 0;
     for(i = 0; i < ARRAYNUMBER && flag; i++)
     {
