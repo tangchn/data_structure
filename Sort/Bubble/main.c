@@ -1,4 +1,10 @@
-﻿//各种排序算法
+/*************************************************************************
+	> File Name: BinaryInsertion.c
+	> Description: 折半插入排序
+	> Author: Yves
+	> Mail: mail: me@tangye.me
+	> Created Time: 2015-5-3. 22:58:51
+ ************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,13 +12,14 @@
 #define ARRAYNUMBER 12
 
 typedef unsigned long long int u64;
+typedef int ElemType;
 
 void Rdtsc(u64* result);
-void InitalArray(int* array);
-void PrintArray(int* array);
-void BubbleSort(int* array);//冒泡排序
-void BubbleSort2(int* array);
-void BubbleSort3(int* array);
+void InitalArray(ElemType* array);
+void PrintArray(ElemType* array);
+void BubbleSort(ElemType* array);//冒泡排序
+void BubbleSort2(ElemType* array);
+void BubbleSort3(ElemType* array);
 
 void Rdtsc(u64* result)
 {
@@ -22,16 +29,16 @@ void Rdtsc(u64* result)
     );
 }
 
-void InitalArray(int* array)
+void InitalArray(ElemType* array)
 {
     int i;
     for(i = 0; i < ARRAYNUMBER; i++)
     {
-        array[i] = rand()%100;
+        array[i] = (ElemType)rand()%100;
     }
 }
 
-void PrintArray(int* array)
+void PrintArray(ElemType* array)
 {
     int i;
     for(i = 0; i < ARRAYNUMBER; i++)
@@ -98,14 +105,14 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    int* array = (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* array = (int*)malloc(sizeof(int)*ARRAYNUMBER);
     InitalArray(array);
     PrintArray(array);
 
-    int* tempArray =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* tempArray =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
     for(i = 0; i < ARRAYNUMBER; i++)
     {
-        tempArray[i] = i;
+        tempArray[i] = (ElemType)i;
     }
 
     //冒泡排序
