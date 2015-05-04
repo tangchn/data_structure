@@ -1,6 +1,6 @@
 /*************************************************************************
 	> File Name: BinaryInsertion.c
-	> Description: 折半插入排序
+	> Description: 冒泡排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me
 	> Created Time: 2015-5-3. 22:58:51
@@ -17,7 +17,7 @@ typedef int ElemType;
 void Rdtsc(u64* result);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
-void BubbleSort(ElemType* array);//冒泡排序
+void BubbleSort(ElemType* array);
 void BubbleSort2(ElemType* array);
 void BubbleSort3(ElemType* array);
 
@@ -113,32 +113,34 @@ int main(void)
     InitalArray(array);
     PrintArray(array);
 
-    ElemType* tempArray =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* tempArray1 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* tempArray2 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
     for(i = 0; i < ARRAYNUMBER; i++)
     {
-        tempArray[i] = (ElemType)i;
+        tempArray1[i] = array[i];
+        tempArray2[i] = array[i];
     }
 
     //冒泡排序
     Rdtsc(&begin);
-    BubbleSort(tempArray);
+    BubbleSort(array);
     Rdtsc(&end);
     printf("冒泡排序后的数组是:");
-    PrintArray(tempArray);
+    PrintArray(array);
     printf("花费时间为:%llu \n",end - begin);
 
     Rdtsc(&begin);
-    BubbleSort2(tempArray);
+    BubbleSort2(tempArray1);
     Rdtsc(&end);
     printf("冒泡排序2后的数组是:");
-    PrintArray(tempArray);
+    PrintArray(tempArray1);
     printf("花费时间为:%llu \n",end - begin);
 
     Rdtsc(&begin);
-    BubbleSort3(tempArray);
+    BubbleSort3(tempArray2);
     Rdtsc(&end);
     printf("冒泡排序3后的数组是:");
-    PrintArray(tempArray);
+    PrintArray(tempArray2);
     printf("花费时间为:%llu \n",end - begin);
 
     return 0;
