@@ -8,7 +8,7 @@ void QuickSort(ElemType *array,int left,int right);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 
-void QuickSort(ElemType *array,int left,int right)
+/*void QuickSort(ElemType *array,int left,int right)
 {
     int i,j,t,temp;
     if(left > right)
@@ -43,6 +43,28 @@ void QuickSort(ElemType *array,int left,int right)
     array[i] = temp;
     QuickSort(array,left,i-1);//继续处理左边的，这里是一个递归的过程
     QuickSort(array,i+1,right);//继续处理右边的 ，这里是一个递归的过程
+}*/
+
+void QuickSort(ElemType *array,int left,int right)
+{
+    int i,j,t,temp;
+    if(left > right)
+    {
+        return；
+    }
+    temp = array[left];
+    while(array[j] > array[left])
+    {
+        j--;
+    }
+    while(array[i] > array[left])
+    {
+        i++;
+    }
+    temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+    
 }
 
 void InitalArray(ElemType* array)
