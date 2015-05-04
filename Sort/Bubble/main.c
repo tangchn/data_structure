@@ -89,9 +89,9 @@ void BubbleSort3(ElemType* array)
 {
     int i,j,flag;
     ElemType temp;
-    flag = 0;
     for(i = 0; i < ARRAYNUMBER && flag; i++)
     {
+        flag = 0;
         for(j = ARRAYNUMBER - 1; j > i; j--)
         {
             if(array[j-1] > array[j])
