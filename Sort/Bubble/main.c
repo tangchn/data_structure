@@ -99,7 +99,28 @@ void BubbleSort3(ElemType* array)
                 temp = array[j];
                 array[j] = array[j-1];
                 array[j-1] = temp;
-                flag = 1;
+                flag = 1;//若该轮交换过置1，否则就跳过后面的
+            }
+        }
+    }
+}
+
+void BubbleSort4(ElemType* array)
+{
+    int i,j;
+    ElemType temp;
+    int lastpos = 0,lastposition = 0;
+    for(i = 0; i < ARRAYNUMBER && lastposition != lastpos; i++)
+    {
+        lastposition = lastpos;
+        for(j = ARRAYNUMBER - 1; j > lastposition; j--)
+        {
+            if(array[j-1] > array[j])
+            {
+                temp = array[j];
+                array[j] = array[j-1];
+                array[j-1] = temp;
+                lastpos = j;
             }
         }
     }
@@ -115,10 +136,12 @@ int main(void)
 
     ElemType* tempArray1 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
     ElemType* tempArray2 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* tempArray3 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
     for(i = 0; i < ARRAYNUMBER; i++)
     {
         tempArray1[i] = array[i];
         tempArray2[i] = array[i];
+        tempArray3[i] = array[i];
     }
 
     //冒泡排序
@@ -141,6 +164,13 @@ int main(void)
     Rdtsc(&end);
     printf("冒泡排序3后的数组是:");
     PrintArray(tempArray2);
+    printf("花费时间为:%llu \n",end - begin);
+    
+    Rdtsc(&begin);
+    BubbleSort4(tempArray3);
+    Rdtsc(&end);
+    printf("冒泡排序4后的数组是:");
+    PrintArray(tempArray3);
     printf("花费时间为:%llu \n",end - begin);
 
     return 0;
