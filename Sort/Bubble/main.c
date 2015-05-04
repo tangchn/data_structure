@@ -110,7 +110,7 @@ void BubbleSort4(ElemType* array)
     int i,j;
     ElemType temp;
     int lastpos = 0,lastposition = 0;
-    for(i = 0; i < ARRAYNUMBER && lastposition != lastpos; i++)
+    for(i = 0; i < ARRAYNUMBER; i++)
     {
         lastposition = lastpos;
         for(j = ARRAYNUMBER - 1; j > lastposition; j--)
@@ -122,6 +122,10 @@ void BubbleSort4(ElemType* array)
                 array[j-1] = temp;
                 lastpos = j;
             }
+        }
+        if(lastposition == lastpos)
+        {
+        	break;
         }
     }
 }
