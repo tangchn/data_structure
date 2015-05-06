@@ -73,7 +73,7 @@ void HeapSort(ElemType *array, int n)
     for(i=n/2; i>=0; --i)//非叶节点最大序号值为n/2
     {
         HeapAdjust(array,i,n);//从倒数第二层的最后一个根节点开始调整堆
-         PrintArray(array);
+        PrintArray(array);
     }
     printf("初始化堆为：");
     PrintArray(array);
