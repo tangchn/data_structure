@@ -8,54 +8,20 @@ void QuickSort(ElemType *array,int left,int right);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 
-/*void QuickSort(ElemType *array,int left,int right)
-{
-    int i,j,t,temp;
-    if(left > right)
-    {
-        return;
-    }
-    temp = array[left]; //temp中存的就是基准数
-    i = left;
-    j = right;
-    while(i != j)
-    {
-        //顺序很重要，要先从右边开始找
-        while(array[j] >= temp && i < j)
-        {
-            j--;
-        }
-        //再找右边的
-        while(array[i] <= temp && i < j)
-        {
-            i++;
-        }
-        //交换两个数在数组中的位置
-       if(i < j)
-       {
-            t = array[i];
-            array[i] = array[j];
-            array[j] = t;
-       }
-    }
-    //最终将基准数归位
-    array[left] = array[i];//j先行保证了此时a[i]是小于temp的，因此也可以是array[left] = array[j];
-    array[i] = temp;
-    QuickSort(array,left,i-1);//继续处理左边的，这里是一个递归的过程
-    QuickSort(array,i+1,right);//继续处理右边的 ，这里是一个递归的过程
-}*/
-
 void QuickSort(ElemType *array,int left,int right)
 {
     int i,j;
     ElemType temp, base;
     base = array[left];
+    i = left;
+    j = right;
     if(left > right)
     {
         return;
     }
     while(i < j)
     {
+        //顺序很重要，要先从右边开始找
         while(array[j] >= base && j > i)
         {
             j--;
@@ -64,6 +30,7 @@ void QuickSort(ElemType *array,int left,int right)
         {
             i++;
         }
+        //交换两个数在数组中的位置
         if(i < j)
         {
             temp = array[i];
@@ -71,11 +38,12 @@ void QuickSort(ElemType *array,int left,int right)
             array[j] = temp; 
         }
     }
-    array[left] = array[i];
+    //最终将基准数归位
+    array[left] = array[i];//j先行保证了此时a[i]是小于temp的，因此也可以是array[left] = array[j];
     array[i] = base;
     
-    QuickSort(array,left,i-1);
-    QuickSort(array,i+1,right);
+    QuickSort(array,left,i-1);//继续处理左边的，这里是一个递归的过程
+    QuickSort(array,i+1,right);//继续处理右边的 ，这里是一个递归的过程
 }
 
 void InitalArray(ElemType* array)
