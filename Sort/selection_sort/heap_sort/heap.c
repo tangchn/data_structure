@@ -1,4 +1,10 @@
-﻿//Heap Sort
+/*************************************************************************
+	> File Name: heap_sort.c
+	> Description: 堆排序
+	> Author: Yves
+	> Mail: mail: me@tangye.me
+	> Created Time: 2015-5-6. 23:54:51
+ ************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
 
