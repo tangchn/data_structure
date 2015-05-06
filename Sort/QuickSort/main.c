@@ -47,18 +47,20 @@ void PrintArray(ElemType* array);
 
 void QuickSort(ElemType *array,int left,int right)
 {
-    int i,j,t,temp;
+    int i,j;
+    ElemType temp, base;
+    base = array[left];
     if(left > right)
     {
         return;
     }
     while(i < j)
     {
-        while(array[j] >= array[left] && j > i)
+        while(array[j] >= base && j > i)
         {
             j--;
         }
-        while(array[i] <= array[left] && i < j)
+        while(array[i] <= base && i < j)
         {
             i++;
         }
@@ -70,7 +72,7 @@ void QuickSort(ElemType *array,int left,int right)
         }
     }
     array[left] = array[i];
-    array[i] = temp;
+    array[i] = base;
     
     QuickSort(array,left,i-1);
     QuickSort(array,i+1,right);
