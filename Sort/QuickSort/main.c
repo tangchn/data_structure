@@ -52,19 +52,28 @@ void QuickSort(ElemType *array,int left,int right)
     {
         return；
     }
-    temp = array[left];
-    while(array[j] > array[left])
+    while(i < j)
     {
-        j--;
+        while(array[j] > array[left])
+        {
+            j--;
+        }
+        while(array[i] > array[left])
+        {
+            i++;
+        }
+        if(i < j)
+        {
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp; 
+        }
     }
-    while(array[i] > array[left])
-    {
-        i++;
-    }
-    temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+    array[left] = a[i];
+    array[i] = temp;
     
+    QuickSort(array,left,i-1);
+    QuickSort(array,i+1,right);
 }
 
 void InitalArray(ElemType* array)
