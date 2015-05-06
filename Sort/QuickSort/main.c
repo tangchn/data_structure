@@ -50,7 +50,7 @@ void QuickSort(ElemType *array,int left,int right)
     int i,j,t,temp;
     if(left > right)
     {
-        return；
+        return;
     }
     while(i < j)
     {
