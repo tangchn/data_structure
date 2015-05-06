@@ -54,11 +54,11 @@ void QuickSort(ElemType *array,int left,int right)
     }
     while(i < j)
     {
-        while(array[j] > array[left])
+        while(array[j] > array[left] && j > i)
         {
             j--;
         }
-        while(array[i] > array[left])
+        while(array[i] > array[left] && i < j)
         {
             i++;
         }
