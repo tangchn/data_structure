@@ -69,7 +69,7 @@ void QuickSort(ElemType *array,int left,int right)
             array[j] = temp; 
         }
     }
-    array[left] = a[i];
+    array[left] = array[i];
     array[i] = temp;
     
     QuickSort(array,left,i-1);
