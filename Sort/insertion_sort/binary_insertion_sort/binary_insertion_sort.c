@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: BinaryInsertion.c
+	> File Name: binary_insertion_sort.c
 	> Description: 折半插入排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me

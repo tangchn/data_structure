@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: main.c
+	> File Name: insertion_sort.c
 	> Description: 直接插入排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me

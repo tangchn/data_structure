@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: BinaryInsertion.c
+	> File Name: bubble_sort.c
 	> Description: 冒泡排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me

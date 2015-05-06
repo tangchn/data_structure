@@ -1,3 +1,11 @@
+/*************************************************************************
+	> File Name: quick_sort.c
+	> Description: 快速排序
+	> Author: Yves
+	> Mail: mail: me@tangye.me
+	> Created Time: 2015-5-6. 21:28:51
+ ************************************************************************/
+
 ﻿#include <stdlib.h>
 #include <stdio.h>
 
