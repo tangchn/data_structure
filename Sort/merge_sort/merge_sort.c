@@ -17,7 +17,8 @@ typedef int ElemType;
 void Rdtsc(u64* result);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
-void merge_sort(ElemType* array);
+void merge_sort(ElemType* array, ElemType* temp, int start, int end);
+void merge(ElemType* array, ElemType* temp, int start, int mid, int end);
 
 void Rdtsc(u64* result)
 {
@@ -63,7 +64,7 @@ void merge(ElemType* array, ElemType* temp, int start, int mid, int end)
         	temp[k++] = array[j++];
         }
     }
-    while(i < = mid)
+    while(i <= mid)
     {
     	temp[k++] = array[i];	
     }
@@ -72,7 +73,7 @@ void merge(ElemType* array, ElemType* temp, int start, int mid, int end)
     	temp[k++] = array[j];	
     }
     
-    while(i = 0; i < k; i++)
+    for(i = 0; i < k; i++)
     {
     	array[start + i] = temp[i];
     }
