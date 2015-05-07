@@ -66,11 +66,11 @@ void merge(ElemType* array, ElemType* temp, int start, int mid, int end)
     }
     while(i <= mid)
     {
-    	temp[k++] = array[i];	
+    	temp[k++] = array[i++];	
     }
     while(j <= end)
     {
-    	temp[k++] = array[j];	
+    	temp[k++] = array[j++];	
     }
     
     for(i = 0; i < k; i++)
