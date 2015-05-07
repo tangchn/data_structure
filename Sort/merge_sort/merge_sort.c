@@ -53,12 +53,28 @@ void merge(ElemType* array, ElemType* temp, int start, int mid, int end)
     j = mid + 1;
     k = 0;
     
-    for(;;k++)
+    while(i <= mid && j <= end)
     {
         if(array[i] < array[j])
         {
-            
+        	temp[k++] = array[i++];
+        }else
+        {
+        	temp[k++] = array[j++];
         }
+    }
+    while(i < = mid)
+    {
+    	temp[k++] = array[i];	
+    }
+    while(j <= end)
+    {
+    	temp[k++] = array[j];	
+    }
+    
+    while(i = 0; i < k; i++)
+    {
+    	array[start + i] = temp[i];
     }
 }
 
@@ -83,7 +99,7 @@ int main(void)
     PrintArray(array);
     
     Rdtsc(&begin);
-    merge_sort(array, temp, 0, ARRAYNUMBER);
+    merge_sort(array, temp, 0, ARRAYNUMBER-1);
     Rdtsc(&end);
     printf("归并排序后的数组是:");
     PrintArray(array);
