@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARRAYNUMBER 12
+#define ARRAYNUMBER 320
 
 typedef unsigned long long int u64;
 typedef int ElemType;
