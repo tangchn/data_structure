@@ -92,7 +92,6 @@ void merge_sort(ElemType* array, ElemType* temp, int start, int end)
 
 int main(void)
 {
-    int i;
     u64 begin,end;
     ElemType* array = (int*)malloc(sizeof(int)*ARRAYNUMBER);
     ElemType* temp = (int*)malloc(sizeof(int)*ARRAYNUMBER);
