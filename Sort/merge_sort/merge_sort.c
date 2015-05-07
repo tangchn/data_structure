@@ -85,7 +85,7 @@ void merge_sort(ElemType* array, ElemType* temp, int start, int end)
    {
         const int mid = (start + end)/2;
         merge_sort(array, temp, start, mid);
-        merge_sort(array, temp, mid, end);
+        merge_sort(array, temp, mid+1, end);
         merge(array, temp, start, mid, end);
    }
 }
