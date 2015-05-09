@@ -28,8 +28,8 @@ void HeapAdjust(ElemType *array, int start, int end)
     ElemType temp = array[start];; //取出根节点
     i = 2 * start + 1;  //左孩子节点
 
-    while (i < end) {
-        if (i < end - 1 && array[i] < array[i + 1])//比较左右孩子，取出较大的孩子
+    while (i <= end) {
+        if (i <= end - 1 && array[i] < array[i + 1])//比较左右孩子，取出较大的孩子
             i++;
 
         if (temp >= array[i]) //如果根节点大于孩子节点则退出循环，不用调整
@@ -71,13 +71,13 @@ void HeapSort(ElemType *array, int n)
     //先建立大顶堆
     for(i=n/2; i>=0; --i)//非叶节点最大序号值为n/2
     {
-        HeapAdjust(array,i,n);//从倒数第二层的最后一个根节点开始调整堆
+        HeapAdjust(array,i,n-1);//从倒数第二层的最后一个根节点开始调整堆
         PrintArray(array);
     }
     printf("初始化堆为：");
     PrintArray(array);
     //进行排序
-    for(i=n-1; i>=0; --i)
+    for(i = n-1; i >= 0; --i)
     {
 
         //最后一个元素和第一元素进行交换
