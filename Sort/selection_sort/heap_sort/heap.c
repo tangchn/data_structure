@@ -22,8 +22,6 @@ void PrintArray(ElemType* array);
 //本函数进行调整，使H[start~end]成为一个大顶堆
 void HeapAdjust(ElemType *array, int start, int end)
 {
-
-
     int i;
     ElemType temp = array[start];; //取出根节点
     i = 2 * start + 1;  //左孩子节点
@@ -79,7 +77,6 @@ void HeapSort(ElemType *array, int n)
     //进行排序
     for(i = n-1; i >= 0; --i)
     {
-
         //最后一个元素和第一元素进行交换
         ElemType temp=array[i];//取出最后一个元素
         array[i] = array[0];//取出第一个元素，即顶层根节点
