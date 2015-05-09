@@ -28,7 +28,7 @@ void HeapAdjust(ElemType *array, int start, int end)
     ElemType temp = array[start];; //取出根节点
     i = 2 * start + 1;  //左孩子节点
 
-    while (i <= end - 1) {
+    while (i < end) {
         if (i < end - 1 && array[i] < array[i + 1])//比较左右孩子，取出较大的孩子
             i++;
 
@@ -62,7 +62,6 @@ void HeapAdjust(ElemType *array, int start, int end)
         printf("此时数组为：");
         PrintArray(array);
     }
-
     array[start]= temp; //插入最开始不和谐的元素*/
 }
 
