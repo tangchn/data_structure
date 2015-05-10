@@ -14,18 +14,18 @@
 typedef unsigned long long int u64;
 typedef int ElemType;
 
+typedef struct List_node_t 
+{
+	ElemType key; //关键字
+	int next;  //下一个节点
+}List_node;
+
 static void Rdtsc(u64* result);
 static void InitalArray(List_node* array);
 static void PrintArray(List_node* array);
 static void radix_sort_lsd(List_node* array, const int d);
 static void radix_sort_msd(List_node* array, const int d);
 static int get_digit(int n, const int i);
-
-typedef struct List_node_t 
-{
-	ElemType key; //关键字
-	int next;  //下一个节点
-}List_node;
 
 static void Rdtsc(u64* result)
 {
@@ -100,7 +100,7 @@ static void radix_sort_lsd(List_node* array, const int d)
     		if(front[j] != 0)
     		{
     			array[last].next = front[j];
-    			last = rear[j]
+    			last = rear[j];
     		}
     	}
     	array[last].next = 0;
