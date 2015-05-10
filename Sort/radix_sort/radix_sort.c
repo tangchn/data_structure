@@ -40,8 +40,8 @@ static void InitalArray(List_node* array)
     int i;
     //头指针
     array[0].key = (ElemType)0;
-    array[0].next = 0;
-    for(i = 1; i < ARRAYNUMBER; i++)
+    array[0].next = 1;
+    for(i = 1; i <= ARRAYNUMBER; i++)
     {
         array[i].key = (ElemType)rand()%1000;
         array[i].next = 0;
