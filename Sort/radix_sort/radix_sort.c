@@ -38,14 +38,13 @@ static void Rdtsc(u64* result)
 static void InitalArray(List_node* array)
 {
     int i;
-    //头指针
-    array[0].key = (ElemType)0;
-    array[0].next = 1;
-    for(i = 1; i <= ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAYNUMBER; i++)
     {
-        array[i].key = (ElemType)rand()%1000;
-        array[i].next = 0;
+    	array[i].key = (ElemType)rand()%1000;
+    	array[i].next = i + 1;
     }
+    array[0].key = (ElemType)0;
+    array[ARRAYNUMBER].next = 0;
 }
 
 static void PrintArray(List_node* array)
@@ -64,11 +63,6 @@ static void radix_sort_lsd(List_node* array, const int d)
     int current, last;
     int rear[ARRAYNUMBER], front[ARRAYNUMBER];
     
-    for(i = 0; i < ARRAYNUMBER; i++)
-    {
-    	array[i].next = i + 1;
-    }
-    array[ARRAYNUMBER].next = 0;
     for(i = 0; i < d; i++)
     {
     	for(j = 0; j < ARRAYNUMBER; j ++)
