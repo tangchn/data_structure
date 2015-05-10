@@ -15,7 +15,7 @@ typedef unsigned long long int u64;
 typedef int ElemType;
 
 static void Rdtsc(u64* result);
-static void InitalArrayList_node* array);
+static void InitalArray(List_node* array);
 static void PrintArray(List_node* array);
 static void radix_sort_lsd(List_node* array, const int d);
 static void radix_sort_msd(List_node* array, const int d);
