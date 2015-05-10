@@ -15,8 +15,8 @@ typedef unsigned long long int u64;
 typedef int ElemType;
 
 static void Rdtsc(u64* result);
-static void InitalArray(ElemType* array);
-static void PrintArray(ElemType* array);
+static void InitalArrayList_node* array);
+static void PrintArray(List_node* array);
 static void radix_sort_lsd(List_node* array, const int d);
 static void radix_sort_msd(List_node* array, const int d);
 static int get_digit(int n, const int i);
@@ -93,7 +93,7 @@ static void radix_sort_lsd(List_node* array, const int d)
     	{
     		j++;
     	}
-    	array[0].link = current = front[j];
+    	array[0].next = current = front[j];
     	last = rear[j];
     	for(j = j + 1; j < ARRAYNUMBER; j++)
     	{
