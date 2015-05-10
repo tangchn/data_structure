@@ -119,12 +119,12 @@ int main(void)
     InitalArray(array);
     PrintArray(array);
 
-    /*Rdtsc(&begin);
+    Rdtsc(&begin);
     radix_sort_lsd(array, 3);
     Rdtsc(&end);
     printf("基数排序后的数组是:");
     PrintArray(array);
     printf("花费时间为:%llu \n",end - begin);
-    */
+    
     return 0;
 }
