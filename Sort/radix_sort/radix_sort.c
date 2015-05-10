@@ -19,7 +19,7 @@ static void InitalArray(ElemType* array);
 static void PrintArray(ElemType* array);
 static void radix_sort_lsd(ElemType* array);
 static void radix_sort_msd(ElemType* array);
-static int get_digit(int n, const int i)
+static int get_digit(int n, const int i);
 
 typedef struct List_node_t 
 {
@@ -39,7 +39,7 @@ static void InitalArray(list_node* array)
 {
     int i;
     //头指针
-    array[0].key = 0;
+    array[0].key = (ElemType)0;
     arrya[0].next = 0;
     for(i = 1; i < ARRAYNUMBER; i++)
     {
