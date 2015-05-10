@@ -40,7 +40,7 @@ static void InitalArray(List_node* array)
     int i;
     //头指针
     array[0].key = (ElemType)0;
-    arrya[0].next = 0;
+    array[0].next = 0;
     for(i = 1; i < ARRAYNUMBER; i++)
     {
         array[i].key = (ElemType)rand()%1000;
@@ -48,7 +48,7 @@ static void InitalArray(List_node* array)
     }
 }
 
-static void PrintArray(ElemType* array)
+static void PrintArray(List_node* array)
 {
 	int i;
 	for(i = array[0].next; i != 0; array[i].next)
