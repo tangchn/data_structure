@@ -77,7 +77,7 @@ static void radix_sort_lsd(List_node* array, const int d)
     	}
     	for(current = array[0].next; current != 0; current = array[current].next)
     	{
-    		k = get_dit(array[current].key, i + 1);
+    		k = get_digit(array[current].key, i + 1);
     		if(front[k] == 0)
     		{
     			front[k] = current;
