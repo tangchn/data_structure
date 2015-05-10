@@ -17,8 +17,8 @@ typedef int ElemType;
 static void Rdtsc(u64* result);
 static void InitalArray(ElemType* array);
 static void PrintArray(ElemType* array);
-static void radix_sort_lsd(ElemType* array);
-static void radix_sort_msd(ElemType* array);
+static void radix_sort_lsd(List_node* array, const int d);
+static void radix_sort_msd(List_node* array, const int d);
 static int get_digit(int n, const int i);
 
 typedef struct List_node_t 
@@ -35,7 +35,7 @@ static void Rdtsc(u64* result)
     );
 }
 
-static void InitalArray(list_node* array)
+static void InitalArray(List_node* array)
 {
     int i;
     //头指针
@@ -50,6 +50,7 @@ static void InitalArray(list_node* array)
 
 static void PrintArray(ElemType* array)
 {
+	int i;
 	for(i = array[0].next; i != 0; array[i].next)
 	{
 		printf("%d ",array[i].key);
@@ -63,7 +64,7 @@ static void radix_sort_lsd(List_node* array, const int d)
     int current, last;
     int rear[ARRAYNUMBER], front[ARRAYNUMBER];
     
-    for(i = 0; i < n; i++)
+    for(i = 0; i < ARRAYNUMBER; i++)
     {
     	array[i].next = i + 1;
     }
