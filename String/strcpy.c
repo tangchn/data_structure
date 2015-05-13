@@ -13,7 +13,7 @@ static char* strcpy(const char* src, char* dst);
 int main(void)
 {
 	char* src = "Hello Yves";
-	size_t len = strlen(test_string);
+	size_t len = strlen(src);
 	char* dst = (char*)malloc(len*sizeof(char));
 	dst = strcpy(src,dst);
 	printf("The content 'dst' is: %s\n",dst);
