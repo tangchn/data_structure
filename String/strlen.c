@@ -19,10 +19,6 @@ int main(void)
 static size_t strlen(const char* str)
 {
 	const char *s;
-	s = str;
-	while(*s)
-	{
-		s++;
-	}
+	for(s = str; *s; s++);
 	return (s - str);
 }
