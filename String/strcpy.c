@@ -7,7 +7,7 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-#
+#include<assert.h>
 
 static char* strcpy(const char* src, char* dst);
 
