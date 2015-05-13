@@ -8,9 +8,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
-#include<string.h>
 
 static char* strcpy(const char* src, char* dst);
+static size_t strlen(const char* str);
 
 int main(void)
 {
@@ -30,4 +30,11 @@ static char* strcpy(const char* src, char* dst)
 	char* cp = dst;
 	while((*(++dst) = *(++src)) != '\0');
 	return dst;
+}
+
+static size_t strlen(const char* str)
+{
+	const char *s;
+	for(s = str; *s; s++);
+	return (s - str);
 }
