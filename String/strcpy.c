@@ -28,7 +28,7 @@ static char* strcpy(const char* src, char* dst)
 	assert(src != NULL);
 	
 	char* cp = dst;
-	while((*(++cp) = *(++src)) != '\0');
+	while((*cp++ = *src++) != '\0');
 	return dst;
 }
 
