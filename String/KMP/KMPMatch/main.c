@@ -17,7 +17,7 @@ typedef int Status; //定义返回状态
 
 
 static void KMP(const char* source, const int sLen, const char* target, 
-	const int tLen, const int* next, const int* result);
+	const int tLen, const int* next, int* result);
 static void GetNext(const char* target, const int tLen, int* next);
 
 int main(void)
@@ -62,7 +62,7 @@ int main(void)
 }
 
 static void KMP(const char* source, const int sLen, const char* target, 
-const int tLen, const int* next, const int* result)
+const int tLen, const int* next, int* result)
 {
     int i,j,k;
 
