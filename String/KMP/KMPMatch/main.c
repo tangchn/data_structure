@@ -88,7 +88,14 @@ static void GetNext(const char* target, const int tLen, int* next)
         {
             i++;
             j++;
-            next[i] = j;
+            if(target[i] != target[next[j]])
+            {	
+            	next[i] = j;
+            }else
+            {
+            	next[i] = next[j];
+            }
+            
         }else
         {
             j = next[j];
