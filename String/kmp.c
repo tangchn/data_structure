@@ -18,8 +18,8 @@ int main(void)
 	const char target[] = "abaaabbababbababba;abaababbababaabba";
 	const char pattern[] = "ababbaba";
 	
-	size_t tLen = strlen(target);
-	size_t pLen = strlen(pattern);
+	const size_t tLen = strlen(target);
+	const size_t pLen = strlen(pattern);
 
 	int next[pLen + 1];
 	int result[tLen];
