@@ -14,8 +14,8 @@ static size_t strlen(const char* str);
 
 int main(void)
 {
-	char* src = "Hello Yves";
-	size_t len = strlen(src);
+	const char* const src = "Hello Yves";
+	const size_t len = strlen(src);
 	char* dst = (char*)malloc(len*sizeof(char));
 	dst = strcpy(src,dst);
 	printf("The content 'dst' is: %s\n",dst);

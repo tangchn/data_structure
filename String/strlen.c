@@ -12,7 +12,7 @@ static size_t strlen(const char* str);
 
 int main(void)
 {
-	char* test_string = "Hello Yves";
+	const char* const test_string = "Hello Yves";
 	printf("The size of 'test_string' is: %d\n",strlen(test_string));
 }
 
