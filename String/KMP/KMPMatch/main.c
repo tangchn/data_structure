@@ -2,7 +2,7 @@
 	> File Name: KMPMatch.c
 	> Description: KMP模式匹配算法
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-2-13. 11:53:51
  ************************************************************************/
 
@@ -16,13 +16,14 @@
 typedef int Status; //定义返回状态
 
 
-void KMP(char* source, int sLen, char* target, int tLen, int* next, int* result);
-void GetNext(char* target, int tLen, int* next);
+static void KMP(const char* source, const int sLen, const char* target, 
+	const int tLen, const int* next, const int* result);
+static void GetNext(const char* target, const int tLen, int* next);
 
 int main(void)
 {
-    char source[] = "abaaabbababbababbaabaababbababaabba";
-    char target[] = "ababbaba";
+    const char source[] = "abaaabbababbababbaabaababbababaabba";
+    const char target[] = "ababbaba";
     int sLen = strlen(source);
     int tLen = strlen(target);
 
@@ -42,10 +43,8 @@ int main(void)
         printf("%d  ",next[i]);
     }
     printf("\n");
-
     KMP(source,sLen,target,tLen,next,result);
-
-
+    
     if(result[0] == -1)
     {
         printf("字符串%s中不含有字符串%s\n",source,target);
@@ -62,7 +61,8 @@ int main(void)
     return 0;
 }
 
-void KMP(char* source, int sLen, char* target, int tLen, int *next, int* result)
+static void KMP(const char* source, const int sLen, const char* target, 
+const int tLen, const int* next, const int* result)
 {
     int i,j,k;
 
@@ -88,7 +88,7 @@ void KMP(char* source, int sLen, char* target, int tLen, int *next, int* result)
 }
 
 
-void GetNext(char* target, int tLen, int *next)
+static void GetNext(const char* target, const int tLen, int* next)
 {
     int i,j;
     i = 0;
@@ -107,4 +107,6 @@ void GetNext(char* target, int tLen, int *next)
             j = next[j];
         }
     }
+    const char source[] = "abaaabbababbababbaabaababbababaabba";
+    const char target[] = "ababbaba";
 }
