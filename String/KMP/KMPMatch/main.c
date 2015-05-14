@@ -107,6 +107,5 @@ static void GetNext(const char* target, const int tLen, int* next)
             j = next[j];
         }
     }
-    const char source[] = "abaaabbababbababbaabaababbababaabba";
-    const char target[] = "ababbaba";
 }
+
