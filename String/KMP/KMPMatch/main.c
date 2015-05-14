@@ -19,7 +19,7 @@ static void GetNext(const char* target, const int tLen, int* next);
 
 int main(void)
 {
-    const char source[] = "abaaabbababbababbaabaababbababaabba";
+    const char source[] = "abaaabbababbababba;abaababbababaabba";
     const char target[] = "ababbaba";
     int sLen = strlen(source);
     int tLen = strlen(target);
