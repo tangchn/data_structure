@@ -19,7 +19,7 @@ int main(void)
     const char target[] = "ababbaba";
     int sLen = strlen(source);
     int tLen = strlen(target);
-    int next[tLen+1];//注意转移数组的元素要比target多一个
+    int next[tLen+1];//注意转移数组的元素要比target多1个
     int result[sLen];//出现最多次数为sLen个位置
     int i;
     for(i = 0; i < sLen; i++)
@@ -67,7 +67,6 @@ const int tLen, const int* next, int* result)
         if(j == tLen)//找到的时候
         {
             result[k++] = (i-j);
-            j = -1;
         }
     }
 }
