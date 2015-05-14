@@ -8,11 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define SUCCESS 1
-#define FAILURE 0
-#define ERROR -1
 
-typedef int Status; //定义返回状态
 static void KMP(const char* source, const int sLen, const char* target, 
 	const int tLen, const int* next, int* result);
 static void GetNext(const char* target, const int tLen, int* next);
