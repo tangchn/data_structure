@@ -1,8 +1,8 @@
 /*************************************************************************
-	> File Name: rabin-karp.c
+	> File Name: sunday.c
 	> Author: Yves
 	> E-mail: ty@msn.cn
-	> Created Time: 2015-05-14. 00:34:04
+	> Created Time: 2015-05-15. 19:34:24
  ************************************************************************/
 
 #include<stdio.h>
@@ -10,8 +10,6 @@
 
 int main(void)
 {
-	/*The rabin-karp algorithm is similar to the brute mathching
-	 *and it make use of the hash value of the pattern string.
-	 * */
+	/*This algorithm is similar to BM*/
 	return 0;
 }
