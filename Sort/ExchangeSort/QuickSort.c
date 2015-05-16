@@ -1,15 +1,15 @@
 /*************************************************************************
-	> File Name: quick_sort.c
+	> File Name: QuickSort.c
 	> Description: 快速排序
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-5-6. 21:28:51
  ************************************************************************/
 
 ﻿#include <stdlib.h>
 #include <stdio.h>
 
-#define ARRAYNUMBER 12
+#const int ARRAY_NUMBER 12
 typedef int ElemType;
 
 void QuickSort(ElemType *array,int left,int right);

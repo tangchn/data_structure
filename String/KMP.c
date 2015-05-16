@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: kmp.c
+	> File Name: KMP.c
 	> Author: Yves
 	> E-mail: ty@msn.cn
 	> Created Time: 2015-05-14. 12:48:15
@@ -9,9 +9,9 @@
 #include<stdlib.h>
 #include<string.h>
 
-static void kmp(const char* target, const char* pattern, const size_t tLen, const size_t pLen, 
+static void KMP(const char* target, const char* pattern, const size_t tLen, const size_t pLen, 
 		int* result, int* next);
-static void calculate_next(const char *pattern, const size_t pLen, int* next);
+static void CalculateNext(const char *pattern, const size_t pLen, int* next);
 
 int main(void)
 {
@@ -29,7 +29,7 @@ int main(void)
 	for(i = 0; i < tLen; result[i++] = -1);
 
 	/*Print the next array*/
-	calculate_next(pattern, pLen, next);
+	CalculateNext(pattern, pLen, next);
 	printf("The next array is: ");
 	for(i = 0; i <= pLen; i++)
 	{
@@ -38,7 +38,7 @@ int main(void)
 	printf("\n");
 
 	/*Begin to match*/
-	kmp(target, pattern, tLen, pLen, result, next);
+	KMP(target, pattern, tLen, pLen, result, next);
 
 	/*Print the matching result*/
 	if(result[0] == -1)

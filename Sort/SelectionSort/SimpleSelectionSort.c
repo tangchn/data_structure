@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: simple_selection_sort.c
+	> File Name: SimpleSelectionSort.c
 	> Description: 简单选择排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me
@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARRAYNUMBER 12
+#const int ARRAY_NUMBER 12
 
 typedef unsigned long long int u64;
 typedef int ElemType;
@@ -17,7 +17,7 @@ typedef int ElemType;
 void Rdtsc(u64* result);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
-void simple_selection_sort(ElemType* array);
+void SimpleSelectionSort(ElemType* array);
 
 void Rdtsc(u64* result)
 {
@@ -47,7 +47,7 @@ void PrintArray(ElemType* array)
 }
 
 
-void simple_selection_sort(ElemType* array)
+void SimpleSelectionSort(ElemType* array)
 {
     int i,j,k;
     ElemType temp;
@@ -81,7 +81,7 @@ int main(void)
     PrintArray(array);
 
     Rdtsc(&begin);
-    simple_selection_sort(array);
+    SimpleSelectionSort(array);
     Rdtsc(&end);
     printf("简单选择排序后的数组是:");
     PrintArray(array);

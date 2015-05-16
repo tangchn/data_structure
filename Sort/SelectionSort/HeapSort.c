@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: heap_sort.c
+	> File Name: HeapSort.c
 	> Description: 堆排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me
@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ARRAYNUMBER 12
+#const int ARRAY_NUMBER 12
 typedef int ElemType;
 
 void HeapSort(ElemType *array, int n);

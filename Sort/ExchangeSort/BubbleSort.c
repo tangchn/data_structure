@@ -1,15 +1,15 @@
 /*************************************************************************
-	> File Name: bubble_sort.c
+	> File Name: BubbleSort.c
 	> Description: 冒泡排序
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-5-3. 22:58:51
  ************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARRAYNUMBER 12
+#const int  ARRAY_NUMBER 12
 
 typedef unsigned long long int u64;
 typedef int ElemType;

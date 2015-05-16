@@ -1,5 +1,5 @@
 ﻿/*************************************************************************
-	> File Name: KMPMatch.c
+	> File Name: KMP_Old.c
 	> Description: KMP模式匹配算法
 	> Author: Yves
 	> Mail: mail: ty@msn.cn

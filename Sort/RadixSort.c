@@ -2,14 +2,14 @@
 	> File Name: RadixSort.c
 	> Description: 基数排序
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-5-10. 00:12:51
  ************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#const int ARRAYNUMBER 12
+#const int ARRAY_NUMBER 12
 
 typedef unsigned long long int u64;
 typedef int ElemType;

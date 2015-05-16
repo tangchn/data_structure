@@ -1,15 +1,15 @@
 /*************************************************************************
-	> File Name: binary_insertion_sort.c
+	> File Name: BinaryInsertionSort.c
 	> Description: 折半插入排序
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-4-28. 23:17:51
  ************************************************************************/
  
 #include <stdlib.h>
 #include <stdio.h>
 
-#define ARRAYNUMBER 5
+#const int ARRAY_NUMBER 5
 typedef int ElemType;
 
 void Insertsort(ElemType *array,int n);
@@ -19,7 +19,7 @@ void PrintArray(ElemType* array);
 /*
 *将直接插入排序的查找过程改成折半查找，即可将直接插入排序变成折半插入排序
 */
-void BinaryInsertion(ElemType array[], int n)
+void BinaryInsertionSort(ElemType array[], int n)
 {
 	int i,j;
 	int start,end,mid;
@@ -84,7 +84,7 @@ int main(void)
     ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAYNUMBER);
     InitalArray(array);
     PrintArray(array);
-    BinaryInsertion(array,ARRAYNUMBER);
+    BinaryInsertionSort(array,ARRAYNUMBER);
     printf("排序结果为：");
     PrintArray(array);
     return 0;

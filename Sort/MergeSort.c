@@ -2,14 +2,14 @@
 	> File Name: MergeSort.c
 	> Description: 归并排序
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-5-7. 21:15:51
  ************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#const int ARRAYNUMBER 320
+#const int ARRAY_NUMBER 320
 
 typedef unsigned long long int u64;
 typedef int ElemType;
