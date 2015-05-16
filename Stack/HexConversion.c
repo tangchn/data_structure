@@ -72,27 +72,27 @@ static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
 		for(; num[i] != 0; i++)
 		{
 			tempChar = num[i];
-			if(tempChar >= 'A' && tempChar <= "F")
+			if(tempChar >= 'A' && tempChar <= 'F')
 			{
 				tempElem = tempChar - 'A' + 10;
-			}else if(tempChar >= 'a' && tempChar <= "f")
+			}else if(tempChar >= 'a' && tempChar <= 'f')
 			{
 				tempElem = tempChar - 'a' + 10;
 			}else
 			{
 				tempElem = tempChar - '0';
 			}
-			Push(s, temp);
+			Push(s, tempElem);
 		}
 		result = 0;
 		while(s->top != s->base)
 		{
 			Pop(s, &tempElem);
-			reulst = result * 10 + tempElem;
+			result = result * 10 + tempElem;
 		}
 		printf("The result of the converison is: %d", result);
 	}else{
-		printf("Radix is wrong.")
+		printf("Radix is wrong.");
 	}
 }
 
