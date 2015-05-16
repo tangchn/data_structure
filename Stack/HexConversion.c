@@ -30,7 +30,7 @@ static void Pop(myStack* s,ElemType *e);
 static void ClearStack(myStack* s);
 static int GetStackLen(myStack* s);
 static void ConvertDecimalToOthers(int n, const int radix, myStack* s);
-static void ConvertOthersToDecimal(int n, const int radix, myStack* s);
+static void ConvertOthersToDecimal(char* num, const int radix, myStack* s);
 
 static void ConvertDecimalToOthers(int n, const int radix, myStack* s)
 {
@@ -52,47 +52,48 @@ static void ConvertDecimalToOthers(int n, const int radix, myStack* s)
 	printf("\n");
 }
 
-
-int main(void)
+static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
 {
-    myStack s;
-    InitialStack(&s);
-    ElemType e;
-    int n, radix;
-    printf("----------Testing the function that converts decimal number to others----------\n");
-    printf("Please input the decimal number to be convert：");
-    scanf("%d",&n);
-    printf("Please input the radix used in this conversion：");
-    scanf("%d",&radix);
-    ConvertDecimalToOthers(n, radix, &s);
-    printf("\n");
-   
-    /*while(e != '!')
-    {
-        Push(&s,e);
-        scanf("%c",&e);
-    }
-    getchar();//做到清空缓冲区的效果
-    len = GetStackLen(&s);
-    printf("此时栈的大小为：%d\n",len);
-    char binArray[len];
-
-    for(int i = 0; i < len; i++)
-    {
-        Pop(&s,&e);
-        binArray[len-1-i] = e;
-        temp = (int)(e - '0');
-        //printf("%d\n",temp);
-        index = i;
-        while(index--)
-        {
-            temp = 2*temp;
-        }
-        sum = temp + sum;
-    }
-    printf("%s转换后的十进制数据为：%d\n",binArray,sum);*/
-    
-    return 0;
+	s->top = s->base;
+	int result;
+	ElemType tempElem;
+	char tempChar
+	size_t i;
+	if(radix == 16 || radix == 8)
+	{
+		i = 0;
+		if(radix == 16)
+		{
+			if(num[0] == '0' && (num[1] == 'x' || num[1] == 'X')
+			{
+				i = 2;
+			}
+		}
+		for(; num[i] != 0; i++)
+		{
+			tempChar = num[i];
+			if(tempChar >= 'A' && tempChar <= "F")
+			{
+				tempElem = tempChar - 'A' + 10;
+			}else if(tempChar >= 'a' && tempChar <= "f")
+			{
+				tempElem = tempChar - 'a' + 10;
+			}else
+			{
+				tempElem = tempChar - '0';
+			}
+			Push(s, temp);
+		}
+		result = 0;
+		while(s->top != s->base)
+		{
+			Pop(s, &tempElem);
+			reulst = result * 10 + tempElem;
+		}
+		printf("The result of the converison is: %d", result);
+	}else{
+		printf("Radix is wrong.")
+	}
 }
 
 static void InitialStack(myStack* s)
@@ -143,7 +144,31 @@ static void Pop(myStack* s,ElemType *e)
 static void ClearStack(myStack *s)
 {
    free(s->base);
-   printf("Stack is cleared\n");
+   printf("Stack is cleared.\n");
    return; 
 }
 
+int main(void)
+{
+    myStack s;
+    InitialStack(&s);
+    ElemType e;
+    int n, radix;
+    printf("----------Testing the function that converts decimal number to others----------\n");
+    printf("Please input the decimal number to be convert: ");
+    scanf("%d",&n);
+    printf("Please input the radix used in this conversion: ");
+    scanf("%d",&radix);
+    ConvertDecimalToOthers(n, radix, &s);
+    printf("\n");
+   
+    char num[STACK_SIZE];
+    printf("----------Testing the function that converts others number to decimal----------\n");
+    printf("Please input the number to be convert: ");
+    scanf("%s",num);
+    printf("Please input the radix used in this conversion: ");
+    scanf("%d",&radix);
+    ConvertOthersToDecimal(num, radix, &s);
+    printf("\n");
+    return 0;
+}
