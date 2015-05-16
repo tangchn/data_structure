@@ -8,12 +8,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#const int ARRAY_NUMBER 5
 typedef int ElemType;
 
 void InsertionSort(ElemType *array,int n);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
+
+const int ARRAY_NUMBER = 5;
 
 /*
 *假定a[0...i-1]为有序，a[i]..为无序，从i=1开始，将a[i]插入到一个合适的位置
