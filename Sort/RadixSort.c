@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: radix_sort.c
+	> File Name: RadixSort.c
 	> Description: 基数排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me
@@ -9,23 +9,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARRAYNUMBER 12
+#const int ARRAYNUMBER 12
 
 typedef unsigned long long int u64;
 typedef int ElemType;
 
-typedef struct List_node_t 
+typedef struct tagListNode 
 {
 	ElemType key; //关键字
 	int next;  //下一个节点
-}List_node;
+}ListNode;
 
 static void Rdtsc(u64* result);
-static void InitalArray(List_node* array);
-static void PrintArray(List_node* array);
-static void radix_sort_lsd(List_node* array, const int d);
-static void radix_sort_msd(List_node* array, const int d);
-static int get_digit(int n, const int i);
+static void InitalArray(ListNode* array);
+static void PrintArray(ListNode* array);
+static void LsdRadixSort(ListNode* array, const int d);
+static void MsdRadixSort(ListNode* array, const int d);
+static int GetDigit(int n, const int i);
 
 static void Rdtsc(u64* result)
 {
@@ -35,7 +35,7 @@ static void Rdtsc(u64* result)
     );
 }
 
-static void InitalArray(List_node* array)
+static void InitalArray(ListNode* array)
 {
     int i;
     for(i = 0; i < ARRAYNUMBER; i++)
@@ -47,7 +47,7 @@ static void InitalArray(List_node* array)
     array[ARRAYNUMBER].next = 0;
 }
 
-static void PrintArray(List_node* array)
+static void PrintArray(ListNode* array)
 {
 	int i;
 	for(i = array[0].next; i != 0; i= array[i].next)
@@ -57,7 +57,7 @@ static void PrintArray(List_node* array)
     printf("\n");
 }
 
-static void radix_sort_lsd(List_node* array, const int d)
+static void LsdRadixSort(ListNode* array, const int d)
 {
     int i, j, k;
     int current, last;
@@ -71,7 +71,7 @@ static void radix_sort_lsd(List_node* array, const int d)
     	}
     	for(current = array[0].next; current != 0; current = array[current].next)
     	{
-    		k = get_digit(array[current].key, i + 1);
+    		k = GetDigit(array[current].key, i + 1);
     		if(front[k] == 0)
     		{
     			front[k] = current;
@@ -101,7 +101,7 @@ static void radix_sort_lsd(List_node* array, const int d)
     }
 }
 
-static int get_digit(ElemType n, const int i)
+static int GetDigit(ElemType n, const int i)
 {
 	int j;
 	for(j = 1; j < i; j++)
@@ -115,12 +115,12 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    List_node* array = (List_node*)malloc(sizeof(List_node)*(ARRAYNUMBER + 1));
+    ListNode* array = (ListNode*)malloc(sizeof(ListNode)*(ARRAYNUMBER + 1));
     InitalArray(array);
     PrintArray(array);
 
     Rdtsc(&begin);
-    radix_sort_lsd(array, 3);
+    LsdRadixSort(array, 3);
     Rdtsc(&end);
     printf("基数排序后的数组是:");
     PrintArray(array);

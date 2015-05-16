@@ -1,5 +1,5 @@
 /*************************************************************************
-	> File Name: merge_sort.c
+	> File Name: MergeSort.c
 	> Description: 归并排序
 	> Author: Yves
 	> Mail: mail: me@tangye.me
@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARRAYNUMBER 320
+#const int ARRAYNUMBER 320
 
 typedef unsigned long long int u64;
 typedef int ElemType;
@@ -17,8 +17,8 @@ typedef int ElemType;
 void Rdtsc(u64* result);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
-void merge_sort(ElemType* array, ElemType* temp, int start, int end);
-void merge(ElemType* array, ElemType* temp, int start, int mid, int end);
+void MergeSort(ElemType* array, ElemType* temp, int start, int end);
+void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end);
 
 void Rdtsc(u64* result)
 {
@@ -47,7 +47,7 @@ void PrintArray(ElemType* array)
     printf("\n");
 }
 
-void merge(ElemType* array, ElemType* temp, int start, int mid, int end)
+void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end)
 {
     int i, j, k;
     i = start;
@@ -79,14 +79,14 @@ void merge(ElemType* array, ElemType* temp, int start, int mid, int end)
     }
 }
 
-void merge_sort(ElemType* array, ElemType* temp, int start, int end)
+void MergeSort(ElemType* array, ElemType* temp, int start, int end)
 {
    if(start < end)
    {
         const int mid = (start + end)/2;
-        merge_sort(array, temp, start, mid);
-        merge_sort(array, temp, mid+1, end);
-        merge(array, temp, start, mid, end);
+        MergeSort(array, temp, start, mid);
+        MergeSort(array, temp, mid+1, end);
+        MergeArray(array, temp, start, mid, end);
    }
 }
 
@@ -99,7 +99,7 @@ int main(void)
     PrintArray(array);
     
     Rdtsc(&begin);
-    merge_sort(array, temp, 0, ARRAYNUMBER-1);
+    MergeSort(array, temp, 0, ARRAYNUMBER-1);
     Rdtsc(&end);
     printf("归并排序后的数组是:");
     PrintArray(array);

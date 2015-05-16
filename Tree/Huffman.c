@@ -13,13 +13,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SUCCESS         1
-#define FAILURE         0
-#define ERROR           -1
-#define MAXBIT          100
-#define MAXVALUE        10000
-#define MAXLEAFNUMBER      20
-#define MAXNODENUMBER       2*MAXLEAFNUMBER-1
+#const int SUCCESS         1
+#const int FAILURE         0
+#const int ERROR           -1
+#const int MAXBIT          100
+#const int MAXVALUE        10000
+#const int MAXLEAFNUMBER      20
+#const int MAXNODENUMBER       2*MAXLEAFNUMBER-1
 
 typedef char ElemType;
 typedef struct _HNode
