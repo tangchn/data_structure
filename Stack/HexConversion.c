@@ -14,7 +14,7 @@
 #const int STACKSIZE 100
 #const int STACKINCREMENT 10
 
-typedef char ElemType;
+typedef int ElemType;
 
 typedef struct
 {
@@ -25,26 +25,48 @@ typedef struct
 }myStack;
 
 static void Push(myStack* s,ElemType e);
-static void InitStack(myStack* s);
+static void InitialStack(myStack* s);
 static void Pop(myStack* s,ElemType *e);
-static int GetStackLen(myStack *s);
-static 
+static void ClearStack(myStack* s);
+static int GetStackLen(myStack* s);
+static void ConvertDecimalToOthers(const int n, const int radix, myStack* s);
+static void ConvertOthersToDecimal(const int n, const int radix, myStack* s);
+
+static void ConvertDecimalToOthers(const int n, const int radix, myStack* s)
+{
+	//clear the data in the stack
+	s->top = s->base;
+	ElemType temp;
+	while(n != 0)
+	{
+		temp = (ElemType)n % radix;
+		Push(s, temp);
+		n /= radix;
+	}
+	while(s->top != s->base)
+	{
+		Pop(s, &temp);
+		printf("%d",(int)temp);
+	}
+	printf("\n");
+}
+
 
 int main(void)
 {
-
     myStack s;
+    InitialStack(&s);
     ElemType e;
-    int index,len,temp,sum=0;
-
-    InitStack(&s);
-    printf("请输入需要转换的二进制数据：\n");
-    scanf("%c",&e);
-    /*while(scanf("%c",&e) != EOF)
-    {
-        Push(&s,e);
-    }*/
-    while(e != '!')
+    int n, radix;
+    printf("----------Testing the function that converts decimal number to others----------");
+    printf("Please input the decimal number to be convert：");
+    scanf("%d",&n);
+    printf("Please input the radix used in this conversion：");
+    scanf("%d",&radix);
+    ConvertDecimalToOthers(n, radix, s);
+    printf("\n");
+   
+    /*while(e != '!')
     {
         Push(&s,e);
         scanf("%c",&e);
@@ -67,12 +89,16 @@ int main(void)
         }
         sum = temp + sum;
     }
-    printf("%s转换后的十进制数据为：%d\n",binArray,sum);
+    printf("%s转换后的十进制数据为：%d\n",binArray,sum);*/
+    
     return 0;
 }
 
-void InitStack(myStack* s)
+static void InitialStack(myStack* s)
 {
+    /*Here I exploit the heap to implement the stack,so the address of s->top is high
+    * and s->base is low. In the actual stack, it is opposed to the above-mentioned.
+    */
     s->base = (ElemType*)malloc(STACKSIZE*sizeof(ElemType));
     if(!s->base)
     {
@@ -82,7 +108,13 @@ void InitStack(myStack* s)
     s->stackSize = STACKSIZE;
 }
 
-void Push(myStack* s,ElemType e)
+static void InitStack(myStack* s)
+{
+    s->top = s->base;
+    s->stackSize = STACKSIZE;
+}
+
+static void Push(myStack* s,ElemType e)
 {
     if(s->top - s->base >= s->stackSize)//注意此处指针的加减运算
     {
@@ -97,7 +129,7 @@ void Push(myStack* s,ElemType e)
     s->top++;
 }
 
-void Pop(myStack* s,ElemType *e)
+static void Pop(myStack* s,ElemType *e)
 {
     if(s->top == s->base)
     {
@@ -107,8 +139,10 @@ void Pop(myStack* s,ElemType *e)
     *e= *(s->top);
 }
 
-int GetStackLen(myStack *s)
+static void GetStackLen(myStack *s)
 {
-    return s->top - s->base;
+   free(s->base);
+   printf("Stack is cleared\n");
+   return; 
 }
 
