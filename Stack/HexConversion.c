@@ -105,13 +105,13 @@ static void InitialStack(myStack* s)
         exit(0);
     }
     s->top = s->base;
-    s->stackSize = STACKSIZE;
+    s->stackSize = STACK_SIZE;
 }
 
 static void InitStack(myStack* s)
 {
     s->top = s->base;
-    s->stackSize = STACKSIZE;
+    s->stackSize = STACK_SIZE;
 }
 
 static void Push(myStack* s,ElemType e)
