@@ -1,9 +1,10 @@
 ﻿/*************************************************************************
-	> File Name: b2d.c
-	> Description: 利用栈将二进制转换为十进制数据
+	> File Name: HexConversion.c
+	> Description: 利用栈将数字在不同的进制之间进行转换
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-2-11. 10:36:51
+	> Modifid TIme: 2015-5-16
  ************************************************************************/
 
 #include <stdio.h>
@@ -23,10 +24,11 @@ typedef struct
     int stackSize;
 }myStack;
 
-void Push(myStack* s,ElemType e);
-void InitStack(myStack* s);
-void Pop(myStack* s,ElemType *e);
-int GetStackLen(myStack *s);
+static void Push(myStack* s,ElemType e);
+static void InitStack(myStack* s);
+static void Pop(myStack* s,ElemType *e);
+static int GetStackLen(myStack *s);
+static 
 
 int main(void)
 {
