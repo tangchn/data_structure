@@ -2,13 +2,12 @@
 	> File Name: HeapSort.c
 	> Description: 堆排序
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-2-6. 23:54:51
  ************************************************************************/
 #include <stdlib.h>
 #include <stdio.h>
 
-#const int ARRAY_NUMBER 12
 typedef int ElemType;
 
 void HeapSort(ElemType *array, int n);
@@ -16,6 +15,7 @@ void HeapAdjust(ElemType *array, int start, int end);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 
+const int ARRAY_NUMBER = 12;
 
 //堆筛选函数
 //已知H[start~end]中除了start之外均满足堆的定义
