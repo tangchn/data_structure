@@ -9,11 +9,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const int ARRAY_NUMBER = 12;
-
 typedef unsigned long long int u64;
 typedef int ElemType;
-
 typedef struct tagListNode 
 {
 	ElemType key; //关键字
@@ -26,6 +23,8 @@ static void PrintArray(ListNode* array);
 static void LsdRadixSort(ListNode* array, const int d);
 static void MsdRadixSort(ListNode* array, const int d);
 static int GetDigit(int n, const int i);
+
+const int ARRAY_NUMBER = 12;
 
 static void Rdtsc(u64* result)
 {
