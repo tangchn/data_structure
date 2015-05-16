@@ -11,8 +11,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define STACKSIZE 100
-#define STACKINCREMENT 10
+#const int STACKSIZE 100
+#const int STACKINCREMENT 10
 
 typedef char ElemType;
 
