@@ -57,7 +57,7 @@ static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
 	s->top = s->base;
 	int result;
 	ElemType tempElem;
-	char tempChar
+	char tempChar;
 	size_t i;
 	if(radix == 16 || radix == 8)
 	{
