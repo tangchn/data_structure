@@ -88,7 +88,7 @@ static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
 		while(s->top != s->base)
 		{
 			Pop(s, &tempElem);
-			result = result * 10 + tempElem;
+			result = result * radix + tempElem;
 		}
 		printf("The result of the converison is: %d", result);
 	}else{
@@ -166,7 +166,7 @@ int main(void)
     printf("----------Testing the function that converts others number to decimal----------\n");
     printf("Please input the number to be convert: ");
     scanf("%s",num);
-    printf("Please input the radix used in this conversion: ");
+    printf("Please input the radix corresponding to the inputed number: ");
     scanf("%d",&radix);
     ConvertOthersToDecimal(num, radix, &s);
     printf("\n");
