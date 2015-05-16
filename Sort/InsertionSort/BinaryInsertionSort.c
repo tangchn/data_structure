@@ -9,12 +9,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#const int ARRAY_NUMBER 5
 typedef int ElemType;
 
 void Insertsort(ElemType *array,int n);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
+
+const int ARRAY_NUMBER = 5;
 
 /*
 *将直接插入排序的查找过程改成折半查找，即可将直接插入排序变成折半插入排序
