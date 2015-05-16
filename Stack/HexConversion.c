@@ -64,7 +64,7 @@ static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
 		i = 0;
 		if(radix == 16)
 		{
-			if(num[0] == '0' && (num[1] == 'x' || num[1] == 'X')
+			if(num[0] == '0' && (num[1] == 'x' || num[1] == 'X'))
 			{
 				i = 2;
 			}
