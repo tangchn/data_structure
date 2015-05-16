@@ -11,8 +11,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-#const int STACKSIZE 100
-#const int STACKINCREMENT 10
+const int STACK_SIZE 100
+const int STACK_SIZE_INCREMENT 10
 
 typedef int ElemType;
 
@@ -29,10 +29,10 @@ static void InitialStack(myStack* s);
 static void Pop(myStack* s,ElemType *e);
 static void ClearStack(myStack* s);
 static int GetStackLen(myStack* s);
-static void ConvertDecimalToOthers(const int n, const int radix, myStack* s);
-static void ConvertOthersToDecimal(const int n, const int radix, myStack* s);
+static void ConvertDecimalToOthers(int n, const int radix, myStack* s);
+static void ConvertOthersToDecimal(int n, const int radix, myStack* s);
 
-static void ConvertDecimalToOthers(const int n, const int radix, myStack* s)
+static void ConvertDecimalToOthers(int n, const int radix, myStack* s)
 {
 	//clear the data in the stack
 	s->top = s->base;
@@ -63,7 +63,7 @@ int main(void)
     scanf("%d",&n);
     printf("Please input the radix used in this conversion：");
     scanf("%d",&radix);
-    ConvertDecimalToOthers(n, radix, s);
+    ConvertDecimalToOthers(n, radix, &s);
     printf("\n");
    
     /*while(e != '!')
@@ -99,7 +99,7 @@ static void InitialStack(myStack* s)
     /*Here I exploit the heap to implement the stack,so the address of s->top is high
     * and s->base is low. In the actual stack, it is opposed to the above-mentioned.
     */
-    s->base = (ElemType*)malloc(STACKSIZE*sizeof(ElemType));
+    s->base = (ElemType*)malloc(STACK_SIZE*sizeof(ElemType));
     if(!s->base)
     {
         exit(0);
@@ -118,12 +118,12 @@ static void Push(myStack* s,ElemType e)
 {
     if(s->top - s->base >= s->stackSize)//注意此处指针的加减运算
     {
-        s->base = (ElemType*)realloc(s->base,s->stackSize + STACKINCREMENT);
+        s->base = (ElemType*)realloc(s->base,s->stackSize + STACK_SIZE_INCREMENT);
         if(!s->base)
         {
             exit(0);
         }
-        s->stackSize = s->stackSize + STACKINCREMENT;//改变栈的大小
+        s->stackSize = s->stackSize + STACK_SIZE_INCREMENT;//改变栈的大小
     }
     *(s->top) = e;
     s->top++;
@@ -139,7 +139,7 @@ static void Pop(myStack* s,ElemType *e)
     *e= *(s->top);
 }
 
-static void GetStackLen(myStack *s)
+static void ClearStack(myStack *s)
 {
    free(s->base);
    printf("Stack is cleared\n");
