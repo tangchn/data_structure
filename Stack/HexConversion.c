@@ -43,7 +43,7 @@ static void ConvertDecimalToOthers(int n, const int radix, myStack* s)
 		Push(s, temp);
 		n /= radix;
 	}
-	printf("The result of the converison is: ")
+	printf("The result of the converison is: ");
 	while(s->top != s->base)
 	{
 		Pop(s, &temp);
