@@ -9,8 +9,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#const int ARRAY_NUMBER 320
-
 typedef unsigned long long int u64;
 typedef int ElemType;
 
@@ -19,6 +17,8 @@ void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 void MergeSort(ElemType* array, ElemType* temp, int start, int end);
 void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end);
+
+const int ARRAY_NUMBER = 320;
 
 void Rdtsc(u64* result)
 {
