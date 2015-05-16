@@ -8,12 +8,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#const int ARRAY_NUMBER 10
 typedef int ElemType;
 
 void ShellSort(ElemType *array,int n);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
+
+const int ARRAY_NUMBER  = 10;
 
 /*
 *很奇怪，运行会报Segmentation fault，但是用gdb调试就不会，怎么回事？
