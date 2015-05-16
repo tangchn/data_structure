@@ -43,6 +43,7 @@ static void ConvertDecimalToOthers(int n, const int radix, myStack* s)
 		Push(s, temp);
 		n /= radix;
 	}
+	printf("The result of the converison is: ")
 	while(s->top != s->base)
 	{
 		Pop(s, &temp);
@@ -58,7 +59,7 @@ int main(void)
     InitialStack(&s);
     ElemType e;
     int n, radix;
-    printf("----------Testing the function that converts decimal number to others----------");
+    printf("----------Testing the function that converts decimal number to others----------\n");
     printf("Please input the decimal number to be convert：");
     scanf("%d",&n);
     printf("Please input the radix used in this conversion：");
