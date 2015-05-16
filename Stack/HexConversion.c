@@ -11,8 +11,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-const int STACK_SIZE 100
-const int STACK_SIZE_INCREMENT 10
+const int STACK_SIZE 100;
+const int STACK_SIZE_INCREMENT 10;
 
 typedef int ElemType;
 
