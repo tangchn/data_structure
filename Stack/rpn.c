@@ -1,8 +1,8 @@
 ﻿/*************************************************************************
-	> File Name: main.c
+	> File Name: rpn.c
 	> Description: 简单逆波兰计算器的实现，目前只能做到整型加减乘除，不能完成浮点数和小数的运算
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-2-12. 00:03:51
  ************************************************************************/
 
@@ -10,12 +10,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TRUE 1
-#define FALSE 0
-#define ERROR -1
-#define STACKSIZE 100
-#define STACKINCREMENT 10
-#define BUFFERSIZE 100  //定义临时缓冲区大小
+#const int TRUE 1
+#const int FALSE 0
+#const int ERROR -1
+#const int STACKSIZE 100
+#const int STACKINCREMENT 10
+#const int BUFFERSIZE 100  //定义临时缓冲区大小
 
 typedef int Status; //定义返回状态
 typedef char ElemType;
