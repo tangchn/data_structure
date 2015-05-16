@@ -9,12 +9,13 @@
 ﻿#include <stdlib.h>
 #include <stdio.h>
 
-#const int ARRAY_NUMBER 12
 typedef int ElemType;
 
 void QuickSort(ElemType *array,int left,int right);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
+
+const int ARRAY_NUMBER = 12;
 
 void QuickSort(ElemType *array,int left,int right)
 {
