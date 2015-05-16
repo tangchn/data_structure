@@ -2,14 +2,12 @@
 	> File Name: SimpleSelectionSort.c
 	> Description: 简单选择排序
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> Mail: mail: ty@msn.cn
 	> Created Time: 2015-5-6. 23:35:51
  ************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
-
-#const int ARRAY_NUMBER 12
 
 typedef unsigned long long int u64;
 typedef int ElemType;
@@ -18,6 +16,8 @@ void Rdtsc(u64* result);
 void InitalArray(ElemType* array);
 void PrintArray(ElemType* array);
 void SimpleSelectionSort(ElemType* array);
+
+const int ARRAY_NUMBER = 12;
 
 void Rdtsc(u64* result)
 {
