@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#const int ARRAY_NUMBER 12
+const int ARRAY_NUMBER = 12;
 
 typedef unsigned long long int u64;
 typedef int ElemType;
