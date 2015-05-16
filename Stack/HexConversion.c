@@ -30,7 +30,7 @@ static void Pop(myStack* s,ElemType *e);
 static void ClearStack(myStack* s);
 static int GetStackLen(myStack* s);
 static void ConvertDecimalToOthers(int n, const int radix, myStack* s);
-static void ConvertOthersToDecimal(char* num, const int radix, myStack* s);
+static void ConvertOthersToDecimal(char* num, const int radix);
 
 static void ConvertDecimalToOthers(int n, const int radix, myStack* s)
 {
@@ -52,9 +52,8 @@ static void ConvertDecimalToOthers(int n, const int radix, myStack* s)
 	printf("\n");
 }
 
-static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
+static void ConvertOthersToDecimal(char* num, const int radix)
 {
-	s->top = s->base;
 	int result;
 	ElemType tempElem;
 	char tempChar;
@@ -69,6 +68,7 @@ static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
 				i = 2;
 			}
 		}
+		result = 0;
 		for(; num[i] != 0; i++)
 		{
 			tempChar = num[i];
@@ -82,12 +82,6 @@ static void ConvertOthersToDecimal(char* num, const int radix, myStack* s)
 			{
 				tempElem = tempChar - '0';
 			}
-			Push(s, tempElem);
-		}
-		result = 0;
-		while(s->top != s->base)
-		{
-			Pop(s, &tempElem);
 			result = result * radix + tempElem;
 		}
 		printf("The result of the converison is: %d", result);
@@ -157,7 +151,7 @@ int main(void)
     printf("----------Testing the function that converts decimal number to others----------\n");
     printf("Please input the decimal number to be convert: ");
     scanf("%d",&n);
-    printf("Please input the radix used in this conversion: ");
+    printf("Please input the radix corresponding to the output number: ");
     scanf("%d",&radix);
     ConvertDecimalToOthers(n, radix, &s);
     printf("\n");
@@ -166,9 +160,9 @@ int main(void)
     printf("----------Testing the function that converts others number to decimal----------\n");
     printf("Please input the number to be convert: ");
     scanf("%s",num);
-    printf("Please input the radix corresponding to the inputed number: ");
+    printf("Please input the radix corresponding to the input number: ");
     scanf("%d",&radix);
-    ConvertOthersToDecimal(num, radix, &s);
+    ConvertOthersToDecimal(num, radix);
     printf("\n");
     return 0;
 }
