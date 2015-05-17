@@ -42,8 +42,7 @@ static void CreatBiTree(pBiTreeNode *p)
     /*Here we creat the tree in preorder, so the input 
     sequences must comply with the preorder*/
     ElemType c;
-    fflush(stdin);
-    scanf("%c",&c);
+    cin>>c;
     if(c != '#')
     {
 	*p = (BiTreeNode*)malloc(sizeof(BiTreeNode));
