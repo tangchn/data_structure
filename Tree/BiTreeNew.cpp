@@ -8,12 +8,14 @@
  ************************************************************************/
 
 #include<stack>
+#include<cstdlib>
+#include<>
 #include<iostream>
 using namespace std;
 
 typedef char ElemType;
 
-typedef struct tagBiTreeNode
+typedef struct
 {
     ElemType data;
     struct _BiTNode* leftChild;
@@ -66,9 +68,9 @@ static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTre
 	{
 		return;
 	}
-	VisitTree(p);
-	PreOrderRecursiveTraversal(p->leftChild, level + 1; VisitTree);
-	PreOrderRecursiveTraversal(p->leftChild, level + 1; VisitTree);
+	VisitTree(p, level);
+	PreOrderRecursiveTraversal(p->leftChild, level + 1, VisitTree);
+	PreOrderRecursiveTraversal(p->leftChild, level + 1, VisitTree);
 }
 static void PreRecursiveTraversal(pBiTreeNode p,int level)
 {
@@ -94,7 +96,7 @@ static void PostOrderTraverse(pBiTreeNode p,int level);
 
 int main(void)
 {
-    pBiTNode root;
+    BiTreeNode root;
     cout<<"Please input the node of the tree(preorder sequence):  "<<endl;
     CreatBiTree(&root);
     cout<<endl;
