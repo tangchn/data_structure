@@ -122,13 +122,13 @@ static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTre
 			pPrecedingNode = pCurrentNode;
 		}else
 		{
-			if(pCurrentNode->leftChild != NULL)
-			{
-				s.push(pCurrentNode->leftChild);
-			}
 			if(pCurrentNode->rightChild != NULL)
 			{
 				s.push(pCurrentNode->rightChild);
+			}
+			if(pCurrentNode->leftChild != NULL)
+			{
+				s.push(pCurrentNode->leftChild);
 			}
 		}
 	}
