@@ -104,6 +104,8 @@ static void PostOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTre
 }
 static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
+	int temp;
+	temp = level;
 	stack<pBiTreeNode> s;
 	pBiTreeNode pCurrentNode;
 	pBiTreeNode pPrecedingNode = NULL;
@@ -115,12 +117,14 @@ static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTre
 		{
 			pCurrentNode = s.top();
 			s.pop();
-			VisitTree(pCurrentNode);
+			VisitTree(pCurrentNode, level);
 			pPrecedingNode = pCurrentNode;
 		}else
 		{
 			s.push(pCurrentNode->leftChild);
+			temp++;
 			s.push(pCurrentNode->rightChild);
+			temp++;
 		}
 	}
 }
