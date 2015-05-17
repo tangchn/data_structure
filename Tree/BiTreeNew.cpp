@@ -25,17 +25,17 @@ typedef struct tagBiTreeNode
 static void CreatBiTree(pBiTreeNode *p);//创建二叉树
 static void VisitTree(pBiTreeNode p);
 //前序递归遍历
-static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
+static void PreOrderRecursiveTraversal(const pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
 //前序非递归遍历
-static void PreRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
+static void PreRecursiveTraversal(const pBiTreeNode p, void (*VisitTree)(pBiTreeNode p, const int level));
 //中序递归遍历
-static void InOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
+static void InOrderRecursiveTraversal(const pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
 //中序非递归遍历
-static void InOrdeTraversal(pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
+static void InOrdeTraversal(const pBiTreeNode p, void (*VisitTree)(pBiTreeNode p, const int level));
 //后序递归遍历
-static void PostOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
+static void PostOrderRecursiveTraversal(const pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
 //后序非递归遍历
-static void PostOrderTraversal(pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level));
+static void PostOrderTraversal(const pBiTreeNode p, void (*VisitTree)(pBiTreeNode p, const int level));
 
 static void CreatBiTree(pBiTreeNode *p)
 {
@@ -61,7 +61,7 @@ static void VisitTree(pBiTreeNode p, const int level)
 	cout<<p->data<<" is on the level "<<level<<"."<<endl;
 }
 
-static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level))
+static void PreOrderRecursiveTraversal(const pBiTreeNode p, int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
 	if(p == NULL)
 	{
@@ -71,18 +71,20 @@ static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTre
 	PreOrderRecursiveTraversal(p->leftChild, level + 1, VisitTree);
 	PreOrderRecursiveTraversal(p->rightChild, level + 1, VisitTree);
 }
-static void PreRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
+static void PreRecursiveTraversal(const pBiTreeNode p, void (*VisitTree)(pBiTreeNode p, const int level))
 {
-	stack<pBiTreeNode> s;
 	if(p == NULL)
 	{
 		return;
 	}
+	stack<pBiTreeNode> s;
+	pBiTreeNode p;
+	p = root;
 	while(!s.empty() || p != NULL)
 	{
 		while(p != NULL)
 		{
-			VisitTree(p, level);
+			VisitTree(p, 0);
 			s.push(p);
 			p = p->leftChild;
 		}
@@ -94,23 +96,25 @@ static void PreRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBi
 		}
 	}
 }
-static void InOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
+static void InOrderRecursiveTraversal(const pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
-	if(p == NULL)
+	if(root == NULL)
 	{
 		return;
 	}
-	InOrderRecursiveTraversal(p->leftChild, level + 1, VisitTree);
-	VisitTree(p, level);
-	InOrderRecursiveTraversal(p->rightChild, level + 1, VisitTree);
+	InOrderRecursiveTraversal(root->leftChild, level + 1, VisitTree);
+	VisitTree(root, level);
+	InOrderRecursiveTraversal(root->rightChild, level + 1, VisitTree);
 }
-static void InOrdeTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
+static void InOrderTraversal(const pBiTreeNode root, void (*VisitTree)(pBiTreeNode p, const int level))
 {
-	stack<pBiTreeNode> s;
-	if(p == NULL)
+	if(root == NULL)
 	{
 		return;
 	}
+	stack<pBiTreeNode> s;
+	pBiTreeNode p;
+	p = root;
 	while(!s.empty() || p != NULL)
 	{
 		while(p != NULL)
@@ -121,13 +125,13 @@ static void InOrdeTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNo
 		if(!s.empty())
 		{
 			p = s.top();
-			VisitTree(p, level);
+			VisitTree(p, 0);
 			s.pop();
 			p = p->rightChild;
 		}
 	}
 }
-static void PostOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
+static void PostOrderRecursiveTraversal(const pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
 	if(p == NULL)
 	{
@@ -137,12 +141,12 @@ static void PostOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTre
 	PostOrderRecursiveTraversal(p->rightChild, level + 1, VisitTree);
 	VisitTree(p, level);
 }
-static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
+static void PostOrderTraversal(const pBiTreeNode root, void (*VisitTree)(pBiTreeNode p, const int level))
 {
 	stack<pBiTreeNode> s;
 	pBiTreeNode pCurrentNode;
 	pBiTreeNode pPrecedingNode = NULL;
-	s.push(p);
+	s.push(root);
 	while(!s.empty())
 	{
 		pCurrentNode = s.top();
@@ -189,7 +193,7 @@ int main(void)
     cout<<endl;
     
     cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
-    PreRecursiveTraversal(root, 1, &VisitTree);
+    PreRecursiveTraversal(root, &VisitTree);
     cout<<endl;
     
     cout<<"Traverse the tree in inorder:  "<<endl;
@@ -197,7 +201,7 @@ int main(void)
     cout<<endl;
     
     cout<<"Traverse the tree in inorder(non-recursive):  "<<endl;
-    InOrderTraversal(root, 1, &VisitTree);
+    InOrderTraversal(root, &VisitTree);
     cout<<endl;
 
     cout<<"Traverse the tree in posteorder:  "<<endl;
@@ -205,7 +209,7 @@ int main(void)
     cout<<endl;
     
     cout<<"Traverse the tree in postorder(non-recursive):  "<<endl;
-    PostOrderTraversal(root, 1, &VisitTree);
+    PostOrderTraversal(root, &VisitTree);
     cout<<endl;
     
     return 0;
