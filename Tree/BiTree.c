@@ -27,7 +27,7 @@ void PostOrderTraverse(pBiTNode p,int level);//后序遍历
 int main(void)
 {
     pBiTNode root;
-    printf("请输入数据:  ");
+    printf("请输入数据:  \n");
     CreatBiTree(&root);
     printf("\n");
 
@@ -49,16 +49,18 @@ int main(void)
 void CreatBiTree(pBiTNode *p)
 {
     ElemType c;
+    fflush(stdin);
     scanf("%c",&c);
-    if(c == '#')
+    if(c != '#')
     {
-        *p = NULL;
-    }else
-    {
-        *p = (BiTNode*)malloc(sizeof(BiTNode));
+	*p = (BiTNode*)malloc(sizeof(BiTNode));
         (*p)->data = c;
         CreatBiTree(&(*p)->leftChild);
         CreatBiTree(&(*p)->rightChild);
+    }else
+    {
+	*p = NULL;
+	return;
     }
 }
 
