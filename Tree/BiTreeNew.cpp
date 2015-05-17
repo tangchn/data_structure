@@ -85,7 +85,8 @@ static void PreRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBi
 			VisitTree(p, level);
 			s.push(p);
 			p = p->leftChild;
-		}if(!s.empty())
+		}
+		if(!s.empty())
 		{
 			p = s.top();
 			s.pop();
@@ -105,7 +106,26 @@ static void InOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)
 }
 static void InOrdeTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
-	
+	stack<pBiTreeNode> s;
+	if(p == NULL)
+	{
+		return;
+	}
+	while(!s.empty() || p != NULL)
+	{
+		while(p != NULL)
+		{
+			s.push(p);
+			p = p->leftChild;
+		}
+		if(!s.empty())
+		{
+			p = s.top();
+			VisitTree(p, level);
+			s.pop();
+			p = p->rightChild;
+		}
+	}
 }
 static void PostOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
