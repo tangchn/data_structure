@@ -104,7 +104,25 @@ static void PostOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTre
 }
 static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
-	
+	stack<pBiTreeNode> s;
+	pBiTreeNode pCurrentNode;
+	pBiTreeNode pPrecedingNode = NULL;
+	s.push(p);
+	while(!s.empty())
+	{
+		if(pCurrentNode->leftChild != NULL && pCurrentNode->rightChild != NULL
+			|| pPrecedingNode != NULL &&(pPrecedingNode == pCurrentNode->leftChild || pPrecedingNode == pCurrentNode->rightChild))
+		{
+			pCurrentNode = s.top();
+			s.pop();
+			Visit(pCurrentNode);
+			pPrecedingNode = pCurrentNode;
+		}else
+		{
+			s.push(pCurrentNode->leftChild);
+			s.push(pCurrentNode->rightChild);
+		}
+	}
 }
 
 
@@ -135,9 +153,9 @@ int main(void)
     PostOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
     
-    /*cout<<"Traverse the tree in postorder(non-recursive):  "<<endl;
+    cout<<"Traverse the tree in postorder(non-recursive):  "<<endl;
     PostOrderTraversal(root, 1, &VisitTree);
     cout<<endl;
-    */
+    
     return 0;
 }
