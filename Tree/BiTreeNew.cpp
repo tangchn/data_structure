@@ -15,11 +15,11 @@ using namespace std;
 
 typedef char ElemType;
 
-typedef struct
+typedef struct tagBiTreeNode
 {
     ElemType data;
-    struct _BiTNode* leftChild;
-    struct _BiTNode* rightChild;
+    struct tagBiTreeNode* leftChild;
+    struct tagBiTreeNode* rightChild;
 }BiTreeNode, *pBiTreeNode;//指向BiTNode的指针
 
 static void CreatBiTree(pBiTreeNode *p);//创建二叉树
