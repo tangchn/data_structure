@@ -45,7 +45,7 @@ static void CreatBiTree(pBiTreeNode *p)
     cin>>c;
     if(c != '#')
     {
-	*p = (BiTreeNode*)malloc(sizeof(BiTreeNode));
+		*p = (BiTreeNode*)malloc(sizeof(BiTreeNode));
     	(*p)->data = c;
         CreatBiTree(&(*p)->leftChild);
         CreatBiTree(&(*p)->rightChild);
@@ -73,21 +73,29 @@ static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTre
 }
 static void PreRecursiveTraversal(pBiTreeNode p,int level)
 {
-	
+	if(p == NULL)
+	{
+		return;
+	}
 }
-static void InOrderrRecursiveTraverse(pBiTreeNode p,int level)
+static void InOrderRecursiveTraversal(pBiTreeNode p,int level)
 {
-	
+	if(p == NULL)
+	{
+		return;
+	}
+	VisitTree(p, level);
+	InOrder
 }
 static void InOrdeTraversal(pBiTreeNode p,int level)
 {
 	
 }
-static void PostOrderRecursiveTraverse(pBiTreeNode p,int level)
+static void PostOrderRecursiveTraversal(pBiTreeNode p,int level)
 {
 	
 }
-static void PostOrderTraverse(pBiTreeNode p,int level)
+static void PostOrderTraversal(pBiTreeNode p,int level)
 {
 	
 }
@@ -104,26 +112,25 @@ int main(void)
     PreOrderRecursiveTraversal(root,1,&VisitTree);
     cout<<endl;
     
-    /*cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
-    PreRecursiveTraversal(root,1);
+    cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
+    PreRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
 
     cout<<("Traverse the tree in inorder:  "<<endl;
-    InOrderrRecursiveTraverse(root,1);
+    InOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
     
     cout<<("Traverse the tree in inorder(non-recursive):  "<<endl;
-    InOrdeTraversal(root,1);
+    InOrderTraversal(root, 1, &VisitTree);
     cout<<endl;
 
     cout<<("Traverse the tree in posteorder:  "<<endl;
-    PostOrderRecursiveTraverse(root,1);
+    PostOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
     
     cout<<("Traverse the tree in postorder(non-recursive):  "<<endl;
-    InOrderTraverse(root,1);
-    PostOrderTraverse(root,1);
-    cout<<endl;*/
+    PostOrderTraversal(root, 1, &VisitTree);
+    cout<<endl;
     
     return 0;
 }
