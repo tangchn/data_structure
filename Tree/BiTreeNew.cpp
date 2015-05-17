@@ -102,7 +102,7 @@ int main(void)
     cout<<endl;
 
     cout<<"Traverse the tree in preorder:  "<<endl;
-    PreOrderRecursiveTraversal(root,1);
+    PreOrderRecursiveTraversal(root,1,&VisitTree);
     cout<<endl;
     
     /*cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
