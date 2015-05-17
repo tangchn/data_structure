@@ -69,7 +69,7 @@ static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTre
 	}
 	VisitTree(p, level);
 	PreOrderRecursiveTraversal(p->leftChild, level + 1, VisitTree);
-	PreOrderRecursiveTraversal(p->rigthChild, level + 1, VisitTree);
+	PreOrderRecursiveTraversal(p->rightChild, level + 1, VisitTree);
 }
 static void PreRecursiveTraversal(pBiTreeNode p,int level)
 {
