@@ -113,8 +113,8 @@ static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTre
 	while(!s.empty())
 	{
 		pCurrentNode = s.top();
-		if(pCurrentNode->leftChild != NULL && pCurrentNode->rightChild != NULL
-			|| pPrecedingNode != NULL &&(pPrecedingNode == pCurrentNode->leftChild || pPrecedingNode == pCurrentNode->rightChild))
+		if((pCurrentNode->leftChild != NULL && pCurrentNode->rightChild != NULL)
+			|| (pPrecedingNode != NULL && (pPrecedingNode == pCurrentNode->leftChild || pPrecedingNode == pCurrentNode->rightChild))
 		{
 			VisitTree(pCurrentNode, level);
 			s.pop();
