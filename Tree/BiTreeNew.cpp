@@ -29,13 +29,13 @@ static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTre
 //前序非递归遍历
 static void PreRecursiveTraversal(pBiTreeNode p, int level);
 //中序递归遍历
-static void InOrderrRecursiveTraverse(pBiTreeNode p, int level);
+static void InOrderRecursiveTraversal(pBiTreeNode p, int level);
 //中序非递归遍历
 static void InOrdeTraversal(pBiTreeNode p, int level);
 //后序递归遍历
-static void PostOrderRecursiveTraverse(pBiTreeNode p, int level);
+static void PostOrderRecursiveTraversal(pBiTreeNode p, int level);
 //后序非递归遍历
-static void PostOrderTraverse(pBiTreeNode p, int level);
+static void PostOrderTraversal(pBiTreeNode p, int level);
 
 static void CreatBiTree(pBiTreeNode *p)
 {
@@ -84,8 +84,9 @@ static void InOrderRecursiveTraversal(pBiTreeNode p,int level)
 	{
 		return;
 	}
+	InOrderRecursiveTraversal(p->leftChild, level + 1, VisitTree);
 	VisitTree(p, level);
-	InOrder
+	InOrderRecursiveTraversal(p->rightChild, level + 1, VisitTree);
 }
 static void InOrdeTraversal(pBiTreeNode p,int level)
 {
@@ -93,7 +94,13 @@ static void InOrdeTraversal(pBiTreeNode p,int level)
 }
 static void PostOrderRecursiveTraversal(pBiTreeNode p,int level)
 {
-	
+	if(p == NULL)
+	{
+		return;
+	}
+	PostOrderRecursiveTraversal(p->leftChild, level + 1, VisitTree);
+	PostOrderRecursiveTraversal(p->rightChild, level + 1, VisitTree);
+	VisitTree(p, level);
 }
 static void PostOrderTraversal(pBiTreeNode p,int level)
 {
@@ -112,25 +119,25 @@ int main(void)
     PreOrderRecursiveTraversal(root,1,&VisitTree);
     cout<<endl;
     
-    cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
+    /*cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
     PreRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
-
+*/
     cout<<("Traverse the tree in inorder:  "<<endl;
     InOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
     
-    cout<<("Traverse the tree in inorder(non-recursive):  "<<endl;
+    /*cout<<("Traverse the tree in inorder(non-recursive):  "<<endl;
     InOrderTraversal(root, 1, &VisitTree);
     cout<<endl;
-
+*/
     cout<<("Traverse the tree in posteorder:  "<<endl;
     PostOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
     
-    cout<<("Traverse the tree in postorder(non-recursive):  "<<endl;
+    /*cout<<("Traverse the tree in postorder(non-recursive):  "<<endl;
     PostOrderTraversal(root, 1, &VisitTree);
     cout<<endl;
-    
+    */
     return 0;
 }
