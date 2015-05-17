@@ -35,7 +35,7 @@ static void PostOrderRecursiveTraverse(pBiTreeNode p, int level);
 //后序非递归遍历
 static void PostOrderTraverse(pBiTreeNode p, int level);
 
-static void CreatBiTree(pBiTNode *p)
+static void CreatBiTree(pBiTreeNode *p)
 {
     /*Here we creat the tree in preorder, so the input 
     sequences must comply with the preorder*/
@@ -44,7 +44,7 @@ static void CreatBiTree(pBiTNode *p)
     scanf("%c",&c);
     if(c != '#')
     {
-		*p = (BiTNode*)malloc(sizeof(BiTNode));
+		*p = (BiTreeNode*)malloc(sizeof(BiTreeNode));
     	(*p)->data = c;
         CreatBiTree(&(*p)->leftChild);
         CreatBiTree(&(*p)->rightChild);
