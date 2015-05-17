@@ -22,8 +22,10 @@ typedef struct tagBiTreeNode
     struct tagBiTreeNode* rightChild;
 }BiTreeNode, *pBiTreeNode;//指向BiTNode的指针
 
-static void CreatBiTree(pBiTreeNode *root);//创建二叉树
-static void VisitTree(pBiTreeNode p);
+//创建二叉树
+static void CreatBiTree(pBiTreeNode *root);
+//访问树
+static void VisitTree(pBiTreeNode p, const int level);
 //前序递归遍历
 static void PreOrderRecursiveTraversal(const pBiTreeNode root, int level, void (*VisitTree)(pBiTreeNode p, const int level));
 //前序非递归遍历
@@ -58,7 +60,14 @@ static void CreatBiTree(pBiTreeNode *root)
 
 static void VisitTree(pBiTreeNode p, const int level)
 {
-	cout<<p->data<<" is on the level "<<level<<"."<<endl;
+	if(level > 0)
+	{
+		cout<<p->data<<" is on the level "<<level<<"."<<endl;
+	}
+	else
+	{
+		cout<<p->data<<" ";
+	}
 }
 
 static void PreOrderRecursiveTraversal(const pBiTreeNode root, int level, void (*VisitTree)(pBiTreeNode p, const int level))
