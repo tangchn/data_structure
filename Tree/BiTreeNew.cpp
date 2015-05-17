@@ -88,7 +88,7 @@ static void PostOrderRecursiveTraverse(pBiTreeNode p,int level)
 {
 	
 }
-static void PostOrderTraverse(pBiTreeNode p,int level);
+static void PostOrderTraverse(pBiTreeNode p,int level)
 {
 	
 }
