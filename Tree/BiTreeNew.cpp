@@ -9,7 +9,7 @@
 
 #include<stack>
 #include<cstdlib>
-#include<>
+#include<stdio.h>
 #include<iostream>
 using namespace std;
 
@@ -46,7 +46,7 @@ static void CreatBiTree(pBiTreeNode *p)
     scanf("%c",&c);
     if(c != '#')
     {
-		*p = (BiTreeNode*)malloc(sizeof(BiTreeNode));
+	*p = (BiTreeNode*)malloc(sizeof(BiTreeNode));
     	(*p)->data = c;
         CreatBiTree(&(*p)->leftChild);
         CreatBiTree(&(*p)->rightChild);
@@ -96,7 +96,7 @@ static void PostOrderTraverse(pBiTreeNode p,int level);
 
 int main(void)
 {
-    BiTreeNode root;
+    pBiTreeNode root;
     cout<<"Please input the node of the tree(preorder sequence):  "<<endl;
     CreatBiTree(&root);
     cout<<endl;
