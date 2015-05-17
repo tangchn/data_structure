@@ -123,19 +123,19 @@ int main(void)
     PreRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
 */
-    cout<<("Traverse the tree in inorder:  "<<endl;
+    cout<<"Traverse the tree in inorder:  "<<endl;
     InOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
     
-    /*cout<<("Traverse the tree in inorder(non-recursive):  "<<endl;
+    /*cout<<"Traverse the tree in inorder(non-recursive):  "<<endl;
     InOrderTraversal(root, 1, &VisitTree);
     cout<<endl;
 */
-    cout<<("Traverse the tree in posteorder:  "<<endl;
+    cout<<"Traverse the tree in posteorder:  "<<endl;
     PostOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
     
-    /*cout<<("Traverse the tree in postorder(non-recursive):  "<<endl;
+    /*cout<<"Traverse the tree in postorder(non-recursive):  "<<endl;
     PostOrderTraversal(root, 1, &VisitTree);
     cout<<endl;
     */
