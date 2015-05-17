@@ -73,9 +73,24 @@ static void PreOrderRecursiveTraversal(pBiTreeNode p, int level, void (*VisitTre
 }
 static void PreRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
+	stack<pBiTreeNode> s;
 	if(p == NULL)
 	{
 		return;
+	}
+	while(!s.empty() || p != NULL)
+	{
+		while(p != NULL)
+		{
+			VisitTree(p, level);
+			s.push(p);
+			p = p->leftChild;
+		}if(!s.empty())
+		{
+			p = s.top;
+			s.pop();
+			p = p->right;	
+		}
 	}
 }
 static void InOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
@@ -104,8 +119,6 @@ static void PostOrderRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTre
 }
 static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTreeNode p, const int level))
 {
-	int temp;
-	temp = level;
 	stack<pBiTreeNode> s;
 	pBiTreeNode pCurrentNode;
 	pBiTreeNode pPrecedingNode = NULL;
@@ -113,6 +126,15 @@ static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTre
 	while(!s.empty())
 	{
 		pCurrentNode = s.top();
+		/*There is two cases:
+		* 1, the lefechild and the rightchild is all NULL, meaning it is a leaf node,so we can visit it directly.
+		* 2, the preceding node is not NULL,in addtion, it is the rightchild or the leftchild of the curretn node.
+		* Notice because of our order of pushing nodes into stack, it is sure that the two nodes(leftchild,rightchild)
+		* have accessed yet if one of conditions satisfies: 
+		*          pPrecedingNode == pCurrentNode->leftChild  or
+		*          pPrecedingNode == pCurrentNode->rightChild))
+		* of course, pPrecedingNode != NULL must be satisfied.
+		*/
 		if((pCurrentNode->leftChild == NULL && pCurrentNode->rightChild == NULL)
 			|| (pPrecedingNode != NULL && (pPrecedingNode == pCurrentNode->leftChild 
 					|| pPrecedingNode == pCurrentNode->rightChild)))
@@ -146,10 +168,10 @@ int main(void)
     PreOrderRecursiveTraversal(root,1,&VisitTree);
     cout<<endl;
     
-    /*cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
+    cout<<"Traverse the tree in preorder(non-recursive):  "<<endl;
     PreRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
-*/
+    
     cout<<"Traverse the tree in inorder:  "<<endl;
     InOrderRecursiveTraversal(root, 1, &VisitTree);
     cout<<endl;
