@@ -115,7 +115,7 @@ static void PostOrderTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBiTre
 		{
 			pCurrentNode = s.top();
 			s.pop();
-			Visit(pCurrentNode);
+			VisitTree(pCurrentNode);
 			pPrecedingNode = pCurrentNode;
 		}else
 		{
