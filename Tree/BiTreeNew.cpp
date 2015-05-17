@@ -87,9 +87,9 @@ static void PreRecursiveTraversal(pBiTreeNode p,int level, void (*VisitTree)(pBi
 			p = p->leftChild;
 		}if(!s.empty())
 		{
-			p = s.top;
+			p = s.top();
 			s.pop();
-			p = p->right;	
+			p = p->rightChild;	
 		}
 	}
 }
