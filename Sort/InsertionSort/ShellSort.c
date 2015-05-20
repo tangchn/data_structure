@@ -10,16 +10,16 @@
 
 typedef int ElemType;
 
-void ShellSort(ElemType *array,int n);
-void InitalArray(ElemType* array);
-void PrintArray(ElemType* array);
+static void ShellSort(ElemType* const array,const int n);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
 
 const int ARRAY_NUMBER  = 10;
 
 /*
 *很奇怪，运行会报Segmentation fault，但是用gdb调试就不会，怎么回事？
 */
-void ShellSort(ElemType *array, int n)
+static void ShellSort(ElemType* const array, const int n)
 {
 	int gap = n;
 	int i,j;
@@ -39,7 +39,7 @@ void ShellSort(ElemType *array, int n)
 	}
 }
 
-void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -48,7 +48,7 @@ void InitalArray(ElemType* array)
     }
 }
 
-void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -60,7 +60,7 @@ void PrintArray(ElemType* array)
 
 int main(void)
 {
-    ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
+    ElemType* const array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
     ShellSort(array,ARRAY_NUMBER);

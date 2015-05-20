@@ -12,15 +12,15 @@
 typedef unsigned long long int u64;
 typedef int ElemType;
 
-static void Rdtsc(u64* result);
-static void InitalArray(ElemType* array);
-static void PrintArray(ElemType* array);
-static void MergeSort(ElemType* array, ElemType* temp, int start, int end);
-static void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end);
+static void Rdtsc(u64* const result);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
+static void MergeSort(ElemType* const array, ElemType* temp, int start, int end);
+static void MergeArray(ElemType* const array, ElemType* temp, int start, int mid, int end);
 
-const int ARRAY_NUMBER = 320;
+const int ARRAY_NUMBER = 17;
 
-static void Rdtsc(u64* result)
+static void Rdtsc(u64* const result)
 {
     asm(
         "rdtsc\n\t"
@@ -28,7 +28,7 @@ static void Rdtsc(u64* result)
     );
 }
 
-static void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -37,7 +37,7 @@ static void InitalArray(ElemType* array)
     }
 }
 
-static void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -47,7 +47,7 @@ static void PrintArray(ElemType* array)
     printf("\n");
 }
 
-static void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end)
+static void MergeArray(ElemType* const array, ElemType* temp, int start, int mid, int end)
 {
     int i, j, k;
     i = start;
@@ -79,7 +79,7 @@ static void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int 
     }
 }
 
-static void MergeSort(ElemType* array, ElemType* temp, int start, int end)
+static void MergeSort(ElemType* const array, ElemType* temp, int start, int end)
 {
    if(start < end)
    {
@@ -93,8 +93,8 @@ static void MergeSort(ElemType* array, ElemType* temp, int start, int end)
 int main(void)
 {
     u64 begin,end;
-    ElemType* array = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
-    ElemType* temp = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
+    ElemType* const array = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
+    ElemType* const temp = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
     

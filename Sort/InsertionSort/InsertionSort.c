@@ -10,16 +10,16 @@
 
 typedef int ElemType;
 
-void InsertionSort(ElemType *array,int n);
-void InitalArray(ElemType* array);
-void PrintArray(ElemType* array);
+static void InsertionSort(ElemType* const array,const int n);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
 
 const int ARRAY_NUMBER = 5;
 
 /*
 *假定a[0...i-1]为有序，a[i]..为无序，从i=1开始，将a[i]插入到一个合适的位置
 */
-void InsertionSort(ElemType array[], int n)
+static void InsertionSort(ElemType* const array, const int n)
 {
 	int i,j;
 	ElemType temp;
@@ -41,7 +41,7 @@ void InsertionSort(ElemType array[], int n)
         }*/
 }
 
-void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -50,7 +50,7 @@ void InitalArray(ElemType* array)
     }
 }
 
-void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -62,7 +62,7 @@ void PrintArray(ElemType* array)
 
 int main(void)
 {
-    ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
+    ElemType* const array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
     InsertionSort(array,ARRAY_NUMBER);

@@ -12,14 +12,14 @@
 typedef unsigned long long int u64;
 typedef int ElemType;
 
-void Rdtsc(u64* result);
-void InitalArray(ElemType* array);
-void PrintArray(ElemType* array);
-void SimpleSelectionSort(ElemType* array);
+static void Rdtsc(u64* const result);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
+static void SimpleSelectionSort(ElemType* const array);
 
 const int ARRAY_NUMBER = 12;
 
-void Rdtsc(u64* result)
+static void Rdtsc(u64* result)
 {
     asm(
         "rdtsc\n\t"
@@ -27,7 +27,7 @@ void Rdtsc(u64* result)
     );
 }
 
-void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -36,7 +36,7 @@ void InitalArray(ElemType* array)
     }
 }
 
-void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -47,7 +47,7 @@ void PrintArray(ElemType* array)
 }
 
 
-void SimpleSelectionSort(ElemType* array)
+static void SimpleSelectionSort(ElemType* const array)
 {
     int i,j,k;
     ElemType temp;
@@ -76,7 +76,7 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    ElemType* array = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
+    ElemType* const array = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
 

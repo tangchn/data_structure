@@ -17,16 +17,16 @@ typedef struct tagListNode
 	int next;  //下一个节点
 }ListNode;
 
-static void Rdtsc(u64* result);
-static void InitalArray(ListNode* array);
-static void PrintArray(ListNode* array);
-static void LsdRadixSort(ListNode* array, const int d);
-static void MsdRadixSort(ListNode* array, const int d);
+static void Rdtsc(u64* const result);
+static void InitalArray(ListNode* const array);
+static void PrintArray(ListNode* const array);
+static void LsdRadixSort(ListNode* const array, const int d);
+static void MsdRadixSort(ListNode* const array, const int d);
 static int GetDigit(int n, const int i);
 
 const int ARRAY_NUMBER = 12;
 
-static void Rdtsc(u64* result)
+static void Rdtsc(u64* const result)
 {
     asm(
         "rdtsc\n\t"
@@ -34,7 +34,7 @@ static void Rdtsc(u64* result)
     );
 }
 
-static void InitalArray(ListNode* array)
+static void InitalArray(ListNode* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -46,7 +46,7 @@ static void InitalArray(ListNode* array)
     array[ARRAY_NUMBER].next = 0;
 }
 
-static void PrintArray(ListNode* array)
+static void PrintArray(ListNode* const array)
 {
 	int i;
 	for(i = array[0].next; i != 0; i= array[i].next)
@@ -56,7 +56,7 @@ static void PrintArray(ListNode* array)
     printf("\n");
 }
 
-static void LsdRadixSort(ListNode* array, const int d)
+static void LsdRadixSort(ListNode* const array, const int d)
 {
     int i, j, k;
     int current, last;
@@ -114,7 +114,7 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    ListNode* array = (ListNode*)malloc(sizeof(ListNode)*(ARRAY_NUMBER + 1));
+    ListNode* const array = (ListNode*)malloc(sizeof(ListNode)*(ARRAY_NUMBER + 1));
     InitalArray(array);
     PrintArray(array);
 

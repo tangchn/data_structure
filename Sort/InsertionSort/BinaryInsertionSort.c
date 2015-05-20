@@ -11,16 +11,16 @@
 
 typedef int ElemType;
 
-void Insertsort(ElemType *array,int n);
-void InitalArray(ElemType* array);
-void PrintArray(ElemType* array);
+static void Insertsort(ElemType* const array,const int n);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
 
 const int ARRAY_NUMBER = 5;
 
 /*
 *将直接插入排序的查找过程改成折半查找，即可将直接插入排序变成折半插入排序
 */
-void BinaryInsertionSort(ElemType array[], int n)
+static void BinaryInsertionSort(ElemType* const array, const int n)
 {
 	int i,j;
 	int start,end,mid;
@@ -61,7 +61,7 @@ void BinaryInsertionSort(ElemType array[], int n)
         }*/
 }
 
-void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER ; i++)
@@ -70,7 +70,7 @@ void InitalArray(ElemType* array)
     }
 }
 
-void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER ; i++)
@@ -82,7 +82,7 @@ void PrintArray(ElemType* array)
 
 int main(void)
 {
-    ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER );
+    ElemType* const array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER );
     InitalArray(array);
     PrintArray(array);
     BinaryInsertionSort(array,ARRAY_NUMBER );

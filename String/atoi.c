@@ -10,7 +10,7 @@
 #include<string.h>
 #include<limits.h>
 
-static int str_to_int(const char* str);
+static int str_to_int(const char* const str);
 
 
 int main(void)
@@ -25,7 +25,7 @@ int main(void)
 	return 0 ;
 }
 
-static int str_to_int(const char* str)
+static int str_to_int(const char* const str)
 {
 	int result = 0;
 	int sign = 1;

@@ -10,17 +10,17 @@
 
 typedef int ElemType;
 
-void HeapSort(ElemType *array, int n);
-void HeapAdjust(ElemType *array, int start, int end);
-void InitalArray(ElemType* array);
-void PrintArray(ElemType* array);
+static void HeapSort(ElemType* const array,const int n);
+static void HeapAdjust(ElemType* const array, const int start, const int end);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
 
 const int ARRAY_NUMBER = 12;
 
 //堆筛选函数
 //已知H[start~end]中除了start之外均满足堆的定义
 //本函数进行调整，使H[start~end]成为一个大顶堆
-void HeapAdjust(ElemType *array, int start, int end)
+static void HeapAdjust(ElemType* const array, const int start, const int end)
 {
     int i;
     ElemType temp = array[start];; //取出根节点
@@ -63,7 +63,7 @@ void HeapAdjust(ElemType *array, int start, int end)
     array[start]= temp; //插入最开始不和谐的元素*/
 }
 
-void HeapSort(ElemType *array, int n)
+static void HeapSort(ElemType* const array,const  int n)
 {
     int i;
     //先建立大顶堆
@@ -87,7 +87,7 @@ void HeapSort(ElemType *array, int n)
     }
 }
 
-void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -96,7 +96,7 @@ void InitalArray(ElemType* array)
     }
 }
 
-void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -108,7 +108,7 @@ void PrintArray(ElemType* array)
 
 int main(void)
 {
-    ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
+    ElemType* const array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
     HeapSort(array,ARRAY_NUMBER);

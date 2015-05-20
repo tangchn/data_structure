@@ -12,9 +12,9 @@
 const int ASCII_SIZE = 256;
 
 static void BadCharacter(const char* pattern, const size_t pLen, int* badSuffixes);
-static void CalculatSuffixes(const* pattern, const size_t pLen, int* suff);
-static void GoodSuffixes(const* pattern, const size_t pLen, int* goodSuffixes);
-static int* BoyerMoore(const* target, const pattern);
+static void CalculatSuffixes(const char* pattern, const size_t pLen, int* suff);
+static void GoodSuffixes(const char* pattern, const size_t pLen, int* goodSuffixes);
+static void BoyerMoore(const char* target, const size_t tLen, const char* pattern, const size_t pLen, int* const result);
 
 /*字符串中每个字符距离最右的大小*/
 static void CalculateBadCharacter(const char* pattern, const size_t pLen, int* badSuffixes)
@@ -22,16 +22,16 @@ static void CalculateBadCharacter(const char* pattern, const size_t pLen, int* b
 	size_t i;
 	for(i = 0; i < ASCII_SIZE; i++)
 	{
-		badSuffixes[i] = m;
+		badSuffixes[i] = pLen;
 	}
 	for(i = 0; i < pLen; i++)
 	{
-		badSuffixes[(unsigned char)pattern[i]] = m - 1 - i;
+		badSuffixes[(unsigned char)pattern[i]] = pLen - 1 - i;
 	}
 }
 
 /*suff[i]表示pattern中第i个字符左边，有suff[i]个字符和pattern的后缀相匹配*/
-static void CalculatSuffixes(const* pattern, const size_t pLen, int* suff)
+static void CalculatSuffixes(const char* pattern, const size_t pLen, int* suff)
 {
 	size_t i, j;
 	suff[pLen -1] = pLen;
@@ -43,7 +43,7 @@ static void CalculatSuffixes(const* pattern, const size_t pLen, int* suff)
 }
 
 /*好后缀*/
-static void CalculateGoodSuffixes(const* pattern, const size_t pLen, int* goodSuffixes)
+static void CalculateGoodSuffixes(const char* pattern, const size_t pLen, int* goodSuffixes)
 {
 	size_t i, j;
 	int suff[pLen];
@@ -62,7 +62,7 @@ static void CalculateGoodSuffixes(const* pattern, const size_t pLen, int* goodSu
 			for(; j < pLen - 1 - i; j++ )
 			{
 				//这样保证只有一次修改
-				if(goodSuffixes[j] == m)
+				if(goodSuffixes[j] == pLen)
 				{
 					goodSuffixes[j] = pLen - 1 - i;
 				}
@@ -71,24 +71,19 @@ static void CalculateGoodSuffixes(const* pattern, const size_t pLen, int* goodSu
 	}
 	for(i = 0; i < pLen -2; i++)
 	{
-		goodSuffixes[pLen- 1 - suff[i]] = PLen - i - 1;
+		goodSuffixes[pLen- 1 - suff[i]] = pLen - i - 1;
 	}
 }
 
-static int* BoyerMoore(const* target, const pattern)
+static void BoyerMoore(const char* target, const size_t tLen, const char* pattern, const size_t pLen, int* const result)
 {
 	size_t i, j, k;
-	
-	const size_t tLen, pLen;
-	tLen = strlen(target);
-	pLen = strlen(pattern);
-	
+
 	int badSuffixes[ASCII_SIZE];
 	CalculateBadCharacter(pattern, pLen, badSuffixes);
-	int goodSuffixes[pattern];
+	int goodSuffixes[pLen];
 	CalculateGoodSuffixes(pattern, pLen, goodSuffixes);
 	
-	int result[tLen];
 	for(i = 0; i < tLen; result[i++] = -1);
 
 	i = j = k = 0;
@@ -100,11 +95,18 @@ static int* BoyerMoore(const* target, const pattern)
 			result[k++] = i;
 			i += goodSuffixes[0];
 		}else
-		{
-			i += (goodSuffixes[j] >= badSuffixes[target[i + j]] - pLen + j + 1)) ? goodSuffixes[j] : badSuffixes[target[i + j]] - pLen + j + 1));
+		{	
+			int temp = badSuffixes[target[i + j]] - pLen + j + 1;			
+			if(goodSuffixes[j] >= temp)
+			{
+				i+= goodSuffixes[j];
+			}else
+			{
+				i+= temp;
+			}				
+			
 		}
 	}
-	return result;
 }
 
 int main(void)
@@ -112,7 +114,12 @@ int main(void)
 	const char target[] = "abaaabbababbababba;abaababbababaabba";
 	const char pattern[] = "ababbaba";
 	
-	int* result = BoyerMoore(target, pattern);
+	const size_t tLen = strlen(target);
+	const size_t pLen = strlen(pattern);	
+	
+	int result[tLen];
+	BoyerMoore(target, tLen, pattern, pLen, result);
+	int i;	
 	if(result[0] == -1)
 	{
 		printf("No match!\n");
