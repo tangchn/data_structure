@@ -37,13 +37,13 @@ static void Rdtsc(u64* result)
 static void InitalArray(ListNode* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER; i++)
     {
     	array[i].key = (ElemType)rand()%1000;
     	array[i].next = i + 1;
     }
     array[0].key = (ElemType)0;
-    array[ARRAYNUMBER].next = 0;
+    array[ARRAY_NUMBER].next = 0;
 }
 
 static void PrintArray(ListNode* array)
@@ -60,11 +60,11 @@ static void LsdRadixSort(ListNode* array, const int d)
 {
     int i, j, k;
     int current, last;
-    int rear[ARRAYNUMBER], front[ARRAYNUMBER];
+    int rear[ARRAY_NUMBER], front[ARRAY_NUMBER];
     
     for(i = 0; i < d; i++)
     {
-    	for(j = 0; j < ARRAYNUMBER; j ++)
+    	for(j = 0; j < ARRAY_NUMBER; j ++)
     	{
     		front[j] = 0;
     	}
@@ -88,7 +88,7 @@ static void LsdRadixSort(ListNode* array, const int d)
     	}
     	array[0].next = current = front[j];
     	last = rear[j];
-    	for(j = j + 1; j < ARRAYNUMBER; j++)
+    	for(j = j + 1; j < ARRAY_NUMBER; j++)
     	{
     		if(front[j] != 0)
     		{
@@ -114,7 +114,7 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    ListNode* array = (ListNode*)malloc(sizeof(ListNode)*(ARRAYNUMBER + 1));
+    ListNode* array = (ListNode*)malloc(sizeof(ListNode)*(ARRAY_NUMBER + 1));
     InitalArray(array);
     PrintArray(array);
 
