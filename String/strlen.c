@@ -12,8 +12,10 @@ static size_t strlen(const char* str);
 
 int main(void)
 {
-	const char* const test_string = "Hello Yves";
-	printf("The size of 'test_string' is: %d\n",strlen(test_string));
+	const char* const test_string = "cas@live.com";
+	const char* const mailname = "ty@msn.cn";
+	printf("The size of %s is: %d\n",mailname, strlen(mailname));
+	printf("The size of %s is: %d\n",test_string, strlen(test_string));
 }
 
 static size_t strlen(const char* str)
