@@ -23,7 +23,7 @@ int main(void)
 	InitalArray(array);
 	QuickSort(array, 0, ARRAY_NUMBER - 1);
 	ElemType key = 55;
-	printf("%d is the %dth element of the array.\n", key, 1 + BiSearch(array, 10, key));
+	printf("%d is the %dth element of the array.\n", key, 1 + BiSearch(array, ARRAY_NUMBER, key));
 	return 0;
 }
 
