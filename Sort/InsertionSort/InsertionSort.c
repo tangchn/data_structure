@@ -2,7 +2,7 @@
 	> File Name: InsertionSort.c
 	> Description: 直接插入排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-4-28. 23:08:51
  ************************************************************************/
 #include <stdlib.h>

@@ -2,7 +2,7 @@
 	> File Name: Huffman.c
 	> Description: 哈夫曼树和哈夫曼编码
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-15. 11:07:51
  *
  *心得:构造数组，自己走一遍就好了

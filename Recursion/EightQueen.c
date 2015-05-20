@@ -2,7 +2,7 @@
 	> File Name: EightQueen.c
 	> Description: 八皇后问题
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-13. 13:40:51
  ************************************************************************/
 

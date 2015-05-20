@@ -2,7 +2,7 @@
 	> File Name: MST-Prim.c
 	> Description: Prim算法实现最小生成树
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-21. 10:28:51
  ************************************************************************/
 

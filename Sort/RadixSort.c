@@ -2,7 +2,7 @@
 	> File Name: RadixSort.c
 	> Description: 基数排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-5-10. 00:12:51
  ************************************************************************/
 

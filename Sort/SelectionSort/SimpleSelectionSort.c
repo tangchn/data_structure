@@ -2,7 +2,7 @@
 	> File Name: SimpleSelectionSort.c
 	> Description: 简单选择排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-5-6. 23:35:51
  ************************************************************************/
 

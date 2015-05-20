@@ -2,7 +2,7 @@
 	> File Name: HexConversion.c
 	> Description: 利用栈将数字在不同的进制之间进行转换
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-11. 10:36:51
 	> Modifid TIme: 2015-5-16
  ************************************************************************/

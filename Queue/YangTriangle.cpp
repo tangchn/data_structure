@@ -1,6 +1,6 @@
 /*************************************************************************
 	> Author: Yves
-	> E-mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> File Name: YangTriangle.cpp
 	> Description: ...
 	> Created  Time: 2015-05-16. 23:21:10

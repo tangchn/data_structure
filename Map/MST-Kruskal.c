@@ -2,7 +2,7 @@
 	> File Name: MST-Kruskal.c
 	> Description: Kruskal算法实现最小生成树
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-21. 13:11:51
  ************************************************************************/
 

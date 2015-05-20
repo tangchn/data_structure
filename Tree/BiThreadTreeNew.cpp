@@ -1,6 +1,6 @@
 /*************************************************************************
 	> Author: Yves
-	> E-mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> File Name: BiThreadTreeNew.cpp
 	> Description: ...
 	> Created  Time: 2015-05-20. 10:20:53

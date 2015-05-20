@@ -2,7 +2,7 @@
 	> File Name: ShellSort.c
 	> Description: 希尔排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-4-28. 23:50:51
  ************************************************************************/
 #include <stdlib.h>

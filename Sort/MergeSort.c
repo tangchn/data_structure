@@ -2,7 +2,7 @@
 	> File Name: MergeSort.c
 	> Description: 归并排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-5-7. 21:15:51
  ************************************************************************/
 

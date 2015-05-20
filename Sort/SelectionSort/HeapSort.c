@@ -2,7 +2,7 @@
 	> File Name: HeapSort.c
 	> Description: 堆排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-6. 23:54:51
  ************************************************************************/
 #include <stdlib.h>

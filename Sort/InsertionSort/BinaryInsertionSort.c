@@ -2,7 +2,7 @@
 	> File Name: BinaryInsertionSort.c
 	> Description: 折半插入排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-4-28. 23:17:51
  ************************************************************************/
  

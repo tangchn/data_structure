@@ -2,7 +2,7 @@
 	> File Name: BiTree.c
 	> Description: 二叉树的各种实现
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-14. 12:35:51
  ************************************************************************/
 

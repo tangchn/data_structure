@@ -2,7 +2,7 @@
 	> File Name: BiLinklist.c
 	> Description: 双向链表的C实现
 	> Author: Yves
-	> Mail: mail: me@tangye.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-7. 12:40:51
  ************************************************************************/
 #include <stdio.h>

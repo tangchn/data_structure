@@ -1,6 +1,6 @@
 /*************************************************************************
 	> Author: Yves
-	> E-mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> File Name: Stack.c
 	> Description: This is a generic stack using C insted of <stack> in C++
 	> Created  Time: 2015-05-17. 01:44:19

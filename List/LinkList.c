@@ -2,7 +2,7 @@
 	> File Name: Linklist.c
 	> Description: 单链表的C实现
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-7. 09:50:51
  ************************************************************************/
 #include <stdio.h>

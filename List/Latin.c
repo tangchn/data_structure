@@ -2,7 +2,7 @@
 	> File Name: Latin.c
 	> Description: 拉丁方阵的C实现
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-11. 09:58:51
  ************************************************************************/
 

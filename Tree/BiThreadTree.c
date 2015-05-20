@@ -2,7 +2,7 @@
 	> File Name: BiThreadTree.c
 	> Description: 线索二叉树的实现
 	> Author: Yves
-	> Mail: mail: tangye@hotmail.com
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-14. 16:35:51
  ************************************************************************/
 

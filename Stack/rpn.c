@@ -2,7 +2,7 @@
 	> File Name: rpn.c
 	> Description: 简单逆波兰计算器的实现，目前只能做到整型加减乘除，不能完成浮点数和小数的运算
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-12. 00:03:51
  ************************************************************************/
 

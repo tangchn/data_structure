@@ -2,7 +2,7 @@
 	> File Name: QuickSort.c
 	> Description: 快速排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-5-6. 21:28:51
  ************************************************************************/
 

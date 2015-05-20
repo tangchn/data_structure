@@ -2,7 +2,7 @@
 	> File Name: BubbleSort.c
 	> Description: 冒泡排序
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-5-3. 22:58:51
  ************************************************************************/
 

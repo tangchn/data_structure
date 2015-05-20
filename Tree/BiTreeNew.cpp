@@ -1,6 +1,6 @@
 /*************************************************************************
 	> Author: Yves
-	> E-mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> File Name: BiTreeNew.cpp
 	> Description: ...
 	> Created  Time: 2015-05-17. 15:51:24

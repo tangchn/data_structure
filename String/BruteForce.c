@@ -2,7 +2,7 @@
 	> File Name: BruteForce.c
 	> Description: BruteForce模式匹配算法
 	> Author: Yves
-	> Mail: mail: me@itang.me
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-13. 13:40:51
  ************************************************************************/
 #include <stdio.h>

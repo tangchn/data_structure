@@ -2,7 +2,7 @@
 	> File Name: KMP_Old.c
 	> Description: KMP模式匹配算法
 	> Author: Yves
-	> Mail: mail: ty@msn.cn
+	> E-mail: tangye@hotmail.com
 	> Created Time: 2015-2-13. 11:53:51
  ************************************************************************/
 #include <stdio.h>
