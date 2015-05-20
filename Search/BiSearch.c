@@ -30,7 +30,7 @@ int main(void)
 
 static int BiSearch(const ElemType* array, const ElemType key)
 {
-	if(key > array[n - 1])
+	if(key > array[ARRAY_NUMBER - 1])
 	{
 		return -1;
 	}
