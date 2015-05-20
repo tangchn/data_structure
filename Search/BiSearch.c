@@ -54,7 +54,7 @@ static int BiSearch(const ElemType* array, const ElemType key)
 	return -1;
 }
 
-static void QuickSort(ElemType *array,int left,int right)
+static void QuickSort(ElemType *array, size_t left, size_t right)
 {
     if(left >= right)
     {
