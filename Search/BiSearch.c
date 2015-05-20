@@ -94,7 +94,7 @@ static void QuickSort(ElemType *array, size_t left, size_t right)
 static void InitalArray(ElemType* array)
 {
     size_t i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER; i++)
     {
         array[i] = (int)rand()%100;
     }
@@ -103,7 +103,7 @@ static void InitalArray(ElemType* array)
 static void PrintArray(ElemType* array)
 {
     size_t i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER; i++)
     {
         printf("%d ",array[i]);
     }
