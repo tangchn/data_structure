@@ -30,7 +30,7 @@ void Rdtsc(u64* result)
 void InitalArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER; i++)
     {
         array[i] = (ElemType)rand()%100;
     }
@@ -39,7 +39,7 @@ void InitalArray(ElemType* array)
 void PrintArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER; i++)
     {
         printf("%d ",array[i]);
     }
@@ -51,10 +51,10 @@ void SimpleSelectionSort(ElemType* array)
 {
     int i,j,k;
     ElemType temp;
-    for(i = 0; i < ARRAYNUMBER; i ++)
+    for(i = 0; i < ARRAY_NUMBER; i ++)
     {
     	k = i;
-    	for(j = i + 1; j < ARRAYNUMBER; j++)
+    	for(j = i + 1; j < ARRAY_NUMBER; j++)
     	{
     		//找出最小的
     		if(array[j] < array[k])
@@ -76,7 +76,7 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    ElemType* array = (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* array = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
 
