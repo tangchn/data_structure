@@ -35,12 +35,19 @@ static void QuickSort(ElemType *array,int left,int right)
         {
             j--;
         }
-        array[i] = array[j];
+        if(i < j)
+        {
+        	array[i++] = array[j];	
+        }
+        
         while(array[i] <= base && i < j)
         {
             i++;
         }
-        array[j] = array[i];
+         if(i < j)
+        {
+        	array[j--] = array[i];
+        }
         //上述在查找过程中同时完成了数据的交换
      	/*也可以比较完了之后再交换
         /*方法二
@@ -56,7 +63,10 @@ static void QuickSort(ElemType *array,int left,int right)
     }
     //最终将基准数归位
     array[i] = base;
-    
+    if(i == 0)
+    {
+    	return;
+    }
     QuickSort(array,left,i-1);//继续处理左边的，这里是一个递归的过程
     QuickSort(array,i+1,right);//继续处理右边的 ，这里是一个递归的过程
 }
