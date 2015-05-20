@@ -44,7 +44,7 @@ void InsertionSort(ElemType array[], int n)
 void InitalArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER ; i++)
     {
         array[i] = rand()%100;
     }
@@ -53,7 +53,7 @@ void InitalArray(ElemType* array)
 void PrintArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER ; i++)
     {
         printf("%d ",array[i]);
     }
@@ -62,7 +62,7 @@ void PrintArray(ElemType* array)
 
 int main(void)
 {
-    ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAYNUMBER);
+    ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER );
     InitalArray(array);
     PrintArray(array);
     InsertionSort(array,ARRAYNUMBER);
