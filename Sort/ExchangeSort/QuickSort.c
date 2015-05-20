@@ -85,7 +85,7 @@ int main(void)
     ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
-    QuickSort(array,0,ARRAYNUMBER-1);
+    QuickSort(array,0,ARRAY_NUMBER-1);
     printf("排序结果为：");
     PrintArray(array);
     return 0;
