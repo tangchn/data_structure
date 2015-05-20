@@ -12,15 +12,15 @@
 typedef unsigned long long int u64;
 typedef int ElemType;
 
-void Rdtsc(u64* result);
-void InitalArray(ElemType* array);
-void PrintArray(ElemType* array);
-void MergeSort(ElemType* array, ElemType* temp, int start, int end);
-void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end);
+static void Rdtsc(u64* result);
+static void InitalArray(ElemType* array);
+static void PrintArray(ElemType* array);
+static void MergeSort(ElemType* array, ElemType* temp, int start, int end);
+static void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end);
 
 const int ARRAY_NUMBER = 320;
 
-void Rdtsc(u64* result)
+static void Rdtsc(u64* result)
 {
     asm(
         "rdtsc\n\t"
@@ -28,26 +28,26 @@ void Rdtsc(u64* result)
     );
 }
 
-void InitalArray(ElemType* array)
+static void InitalArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER; i++)
     {
         array[i] = (ElemType)rand()%100;
     }
 }
 
-void PrintArray(ElemType* array)
+static void PrintArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER; i++)
     {
         printf("%d ",array[i]);
     }
     printf("\n");
 }
 
-void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end)
+static void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end)
 {
     int i, j, k;
     i = start;
@@ -79,7 +79,7 @@ void MergeArray(ElemType* array, ElemType* temp, int start, int mid, int end)
     }
 }
 
-void MergeSort(ElemType* array, ElemType* temp, int start, int end)
+static void MergeSort(ElemType* array, ElemType* temp, int start, int end)
 {
    if(start < end)
    {
@@ -93,13 +93,13 @@ void MergeSort(ElemType* array, ElemType* temp, int start, int end)
 int main(void)
 {
     u64 begin,end;
-    ElemType* array = (int*)malloc(sizeof(int)*ARRAYNUMBER);
-    ElemType* temp = (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* array = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
+    ElemType* temp = (int*)malloc(sizeof(int)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
     
     Rdtsc(&begin);
-    MergeSort(array, temp, 0, ARRAYNUMBER-1);
+    MergeSort(array, temp, 0, ARRAY_NUMBER-1);
     Rdtsc(&end);
     printf("归并排序后的数组是:");
     PrintArray(array);
