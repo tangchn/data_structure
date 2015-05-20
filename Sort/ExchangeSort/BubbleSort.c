@@ -32,7 +32,7 @@ void Rdtsc(u64* result)
 void InitalArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER ; i++)
     {
         array[i] = (ElemType)rand()%100;
     }
@@ -41,7 +41,7 @@ void InitalArray(ElemType* array)
 void PrintArray(ElemType* array)
 {
     int i;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER ; i++)
     {
         printf("%d ",array[i]);
     }
@@ -53,9 +53,9 @@ void BubbleSort(ElemType* array)
 {
     int i,j;
     ElemType temp;
-    for(i = 0; i < ARRAYNUMBER; i ++)
+    for(i = 0; i < ARRAY_NUMBER ; i ++)
     {
-    	for(j = i + 1; j < ARRAYNUMBER; j++)
+    	for(j = i + 1; j < ARRAY_NUMBER ; j++)
     	{
     		if(array[i] > array[j])
     		{
@@ -71,9 +71,9 @@ void BubbleSort2(ElemType* array)
 {
     int i,j;
     ElemType temp;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER ; i++)
     {
-    	for(j = ARRAYNUMBER -1; j > i; j--)
+    	for(j = ARRAY_NUMBER  -1; j > i; j--)
     	{
     		if(array[j-1] > array[j])
     		{
@@ -89,10 +89,10 @@ void BubbleSort3(ElemType* array)
 {
     int i,j,flag;
     ElemType temp;
-    for(i = 0; i < ARRAYNUMBER && flag; i++)
+    for(i = 0; i < ARRAY_NUMBER  && flag; i++)
     {
         flag = 0;
-        for(j = ARRAYNUMBER - 1; j > i; j--)
+        for(j = ARRAY_NUMBER  - 1; j > i; j--)
         {
             if(array[j-1] > array[j])
             {
@@ -110,10 +110,10 @@ void BubbleSort4(ElemType* array)
     int i,j;
     ElemType temp;
     int lastpos = 0,lastposition = 0;
-    for(i = 0; i < ARRAYNUMBER; i++)
+    for(i = 0; i < ARRAY_NUMBER ; i++)
     {
         lastposition = lastpos;
-        for(j = ARRAYNUMBER - 1; j > lastposition; j--)
+        for(j = ARRAY_NUMBER  - 1; j > lastposition; j--)
         {
             if(array[j-1] > array[j])
             {
@@ -134,14 +134,14 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    ElemType* array = (int*)malloc(sizeof(int)*ARRAYNUMBER);
+    ElemType* array = (int*)malloc(sizeof(int)*ARRAY_NUMBER );
     InitalArray(array);
     PrintArray(array);
 
-    ElemType* tempArray1 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
-    ElemType* tempArray2 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
-    ElemType* tempArray3 =  (int*)malloc(sizeof(int)*ARRAYNUMBER);
-    for(i = 0; i < ARRAYNUMBER; i++)
+    ElemType* tempArray1 =  (int*)malloc(sizeof(int)*ARRAY_NUMBER );
+    ElemType* tempArray2 =  (int*)malloc(sizeof(int)*ARRAY_NUMBER );
+    ElemType* tempArray3 =  (int*)malloc(sizeof(int)*ARRAY_NUMBER );
+    for(i = 0; i < ARRAY_NUMBER ; i++)
     {
         tempArray1[i] = array[i];
         tempArray2[i] = array[i];
