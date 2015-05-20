@@ -12,7 +12,7 @@
 const int ARRAY_NUMBER = 30;
 typedef int ElemType;
 
-static int BiSearch(const ElemType* array, const int n, const ElemType key);
+static int BiSearch(const ElemType* array, const ElemType key);
 static void QuickSort(ElemType *array, size_t left, size_t right);
 static void InitalArray(ElemType* array);
 static void PrintArray(ElemType* array);
@@ -22,12 +22,13 @@ int main(void)
 	ElemType array[ARRAY_NUMBER];
 	InitalArray(array);
 	QuickSort(array, 0, ARRAY_NUMBER - 1);
+	PrintArray(array);
 	ElemType key = 55;
 	printf("%d is the %dth element of the array.\n", key, 1 + BiSearch(array, ARRAY_NUMBER, key));
 	return 0;
 }
 
-static int BiSearch(const ElemType* array, const int n, const ElemType key)
+static int BiSearch(const ElemType* array, const ElemType key)
 {
 	if(key > array[n - 1])
 	{
@@ -35,7 +36,7 @@ static int BiSearch(const ElemType* array, const int n, const ElemType key)
 	}
 	size_t start, end, mid;
 	start = 0;
-	end = n;
+	end = ARRAY_NUMBER;
 	while(start <= end)
 	{
 		mid = (start + end) / 2;
