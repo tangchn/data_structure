@@ -11,13 +11,13 @@
 
 typedef int ElemType;
 
-static void QuickSort(ElemType *array,int left,int right);
-static void InitalArray(ElemType* array);
-static void PrintArray(ElemType* array);
+static void QuickSort(ElemType* const array,const int left,const int right);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
 
 const int ARRAY_NUMBER = 12;
 
-static void QuickSort(ElemType *array,int left,int right)
+static void QuickSort(ElemType* const array,int left,int right)
 {
     if(left >= right)
     {
@@ -71,7 +71,7 @@ static void QuickSort(ElemType *array,int left,int right)
     QuickSort(array,i+1,right);//继续处理右边的 ，这里是一个递归的过程
 }
 
-static void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -80,7 +80,7 @@ static void InitalArray(ElemType* array)
     }
 }
 
-static void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER; i++)
@@ -92,7 +92,7 @@ static void PrintArray(ElemType* array)
 
 int main(void)
 {
-    ElemType* array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
+    ElemType* const array = (ElemType*)malloc(sizeof(ElemType)*ARRAY_NUMBER);
     InitalArray(array);
     PrintArray(array);
     QuickSort(array,0,ARRAY_NUMBER-1);

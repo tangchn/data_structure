@@ -14,14 +14,14 @@ const int ARRAY_NUMBER = 12;
 typedef unsigned long long int u64;
 typedef int ElemType;
 
-void Rdtsc(u64* result);
-void InitalArray(ElemType* array);
-void PrintArray(ElemType* array);
-void BubbleSort(ElemType* array);
-void BubbleSort2(ElemType* array);
-void BubbleSort3(ElemType* array);
+static void Rdtsc(u64* const result);
+static void InitalArray(ElemType* const array);
+static void PrintArray(ElemType* const array);
+static void BubbleSort(ElemType* const array);
+static void BubbleSort2(ElemType* const array);
+static void BubbleSort3(ElemType* const array);
 
-void Rdtsc(u64* result)
+static void Rdtsc(u64* result)
 {
     asm(
         "rdtsc\n\t"
@@ -29,7 +29,7 @@ void Rdtsc(u64* result)
     );
 }
 
-void InitalArray(ElemType* array)
+static void InitalArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER ; i++)
@@ -38,7 +38,7 @@ void InitalArray(ElemType* array)
     }
 }
 
-void PrintArray(ElemType* array)
+static void PrintArray(ElemType* const array)
 {
     int i;
     for(i = 0; i < ARRAY_NUMBER ; i++)
@@ -49,7 +49,7 @@ void PrintArray(ElemType* array)
 }
 
 
-void BubbleSort(ElemType* array)
+static void BubbleSort(ElemType* const array)
 {
     int i,j;
     ElemType temp;
@@ -67,13 +67,13 @@ void BubbleSort(ElemType* array)
     }
 }
 /*这才是“冒泡”吧*/
-void BubbleSort2(ElemType* array)
+static void BubbleSort2(ElemType* const array)
 {
     int i,j;
     ElemType temp;
     for(i = 0; i < ARRAY_NUMBER ; i++)
     {
-    	for(j = ARRAY_NUMBER  -1; j > i; j--)
+    	for(j = ARRAY_NUMBER - 1; j > i; j--)
     	{
     		if(array[j-1] > array[j])
     		{
@@ -85,7 +85,7 @@ void BubbleSort2(ElemType* array)
     }
 }
 
-void BubbleSort3(ElemType* array)
+static void BubbleSort3(ElemType* const array)
 {
     int i,j,flag;
     ElemType temp;
@@ -105,7 +105,7 @@ void BubbleSort3(ElemType* array)
     }
 }
 
-void BubbleSort4(ElemType* array)
+static void BubbleSort4(ElemType* const array)
 {
     int i,j;
     ElemType temp;
@@ -134,7 +134,7 @@ int main(void)
 {
     int i;
     u64 begin,end;
-    ElemType* array = (int*)malloc(sizeof(int)*ARRAY_NUMBER );
+    ElemType* const array = (int*)malloc(sizeof(int)*ARRAY_NUMBER );
     InitalArray(array);
     PrintArray(array);
 
