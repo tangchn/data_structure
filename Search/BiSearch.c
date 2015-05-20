@@ -56,7 +56,7 @@ static int BiSearch(const ElemType* array, const ElemType key)
 
 static void QuickSort(ElemType *array, size_t left, size_t right)
 {
-    if(left >= right)
+     if(left >= right)
     {
         return;
     }
@@ -72,28 +72,26 @@ static void QuickSort(ElemType *array, size_t left, size_t right)
         {
             j--;
         }
-        array[i] = array[j];
+        if(i < j)
+        {
+        	array[i++] = array[j];	
+        }
+        
         while(array[i] <= base && i < j)
         {
             i++;
         }
-        array[j] = array[i];
-        //上述在查找过程中同时完成了数据的交换
-     	/*也可以比较完了之后再交换
-        /*方法二
-        if(i < j)
+         if(i < j)
         {
-            temp = array[i];
-            array[i] = array[j];
-            array[j] = temp; 
+        	array[j--] = array[i];
         }
-        //方法二while循环完了之后，加上下面的语句
-        array[left] = array[i];//j先行保证了此时a[i]是小于temp的，因此也可以是array[left] = array[j];
-        */
     }
     //最终将基准数归位
     array[i] = base;
-    
+    if(i == 0)
+    {
+    	return;
+    }
     QuickSort(array,left,i-1);//继续处理左边的，这里是一个递归的过程
     QuickSort(array,i+1,right);//继续处理右边的 ，这里是一个递归的过程
 }
