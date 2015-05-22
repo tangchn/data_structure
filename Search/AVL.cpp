@@ -21,37 +21,37 @@ typedef struct _BiTreeNode
 	ElemType data;
 	struct _BiTreeNode* leftChild;
 	struct _BiTreeNode* rightChild;
+	int BF;
 }BiTreeNode, *pBiTreeNode;//指向BiTNode的指针
 
 
-static void CreatBiTree(pBiTreeNode* root);
-static void DefaultCreatBiTree(pBiTreeNode* root);
+static void CreatAVL(pBiTreeNode* root);
+static void LeftRotation(pBiTreeNode* root);
+static void RightRotation(pBiTreeNode* root);
 static void InOrderTraversal(const pBiTreeNode root);
-static Status SearchBST(const pBiTreeNode root, ElemType key, pBiTreeNode father, pBiTreeNode* p);
-static Status InsertBST(const pBiTreeNode root, ElemType key);
-static Status DeleteBST(const pBiTreeNode root, ElemType key);
-
-ElemType treeNode[21] = {62,58,47,35,404,37,404,404,51,404,404,404,88,73,404,404,99,93,404,404,404};
-size_t k = 0;
+static Status SearchAVL(const pBiTreeNode root, ElemType key, pBiTreeNode father, pBiTreeNode* p);
+static Status InsertAVL(const pBiTreeNode root, ElemType key);
+static Status DeleteAVL(const pBiTreeNode root, ElemType key);
 
 int main(void)
 {
 	pBiTreeNode root;
 	//cout<<"Please input the node data:"<<endl;
-	DefaultCreatBiTree(&root);
+	CreatBiTree(&root);
 	InOrderTraversal(root);
-	
-	cout<<"Please input the number to be searched:"<<endl;
+	RightRotation(&root);
+	InOrderTraversal(root);
+	/*cout<<"Please input the number to be searched:"<<endl;
 	ElemType e;
 	pBiTreeNode p;
 	cin>>e;
-	if(SearchBST(root, e, NULL, &p))
+	if(SearchAVL(root, e, NULL, &p))
 	{
 		cout<<"Search succeeds"<<endl;
 	}else
 	{
 		cout<<"Search fails"<<endl;
-	}
+	}*/
 	return 0;
 }
 
@@ -72,22 +72,18 @@ static void CreatBiTree(pBiTreeNode* root)
 	}
 }
 
-
-static void DefaultCreatBiTree(pBiTreeNode* root)
+static void LeftRotation(pBiTreeNode* root)
 {
-	if(treeNode[k] == 404)
-	{
-		*root = NULL;
-		k++;
-		return;
-	}else
-	{
-		*root = (pBiTreeNode)malloc(sizeof(pBiTreeNode));
-		(*root)->data = treeNode[k];
-		k++;
-		DefaultCreatBiTree(&(*root)->leftChild);
-		DefaultCreatBiTree(&(*root)->rightChild);
-	}
+	pBiTreeNode current, leftChildOfCurrent;
+	current = *root;
+	leftChildOfCurrent = current->lefChild;
+	current->leftChild = leftChildOfCurrent->rightChild;
+	leftChildOfCurrent->rightChild = current;
+	*root = leftChildOfCurrent;
+}
+static void RightRotation(pBiTreeNode* root)
+{
+	
 }
 
 static void InOrderTraversal(const pBiTreeNode root)
@@ -118,7 +114,7 @@ static void InOrderTraversal(const pBiTreeNode root)
 	cout<<endl;
 }
 
-static Status SearchBST(pBiTreeNode root, ElemType key, pBiTreeNode father, pBiTreeNode* p)
+static Status SearchAVL(pBiTreeNode root, ElemType key, pBiTreeNode father, pBiTreeNode* p)
 {
 	if(root == NULL)
 	{
@@ -130,9 +126,9 @@ static Status SearchBST(pBiTreeNode root, ElemType key, pBiTreeNode father, pBiT
 		return SUCCESS;
 	}else if(key < root->data)
 	{
-		return SearchBST(root->leftChild, key, root, p);
+		return SearchAVL(root->leftChild, key, root, p);
 	}else
 	{
-		return SearchBST(root->rightChild, key, root, p);
+		return SearchAVL(root->rightChild, key, root, p);
 	}
 }
