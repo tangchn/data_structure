@@ -78,11 +78,11 @@ static void LeftRotation(pBiTreeNode* root)
 }
 static void RightRotation(pBiTreeNode* root)
 {
-	pBiTreeNode current, leftChildOfRoot;
-	leftChildOfRoot = *root->leftChild;
-	*root->leftChild = leftChildOfRoot->rightChild;
-	leftChildOfRoot->rightChild = *root;
-	*root = leftChildOfRoot;
+	pBiTreeNode leftChildOfRoot;
+	leftChildOfRoot = (*root)->leftChild;
+	(*root)->leftChild = leftChildOfRoot->rightChild;
+	leftChildOfRoot->rightChild = (*root);
+	(*root) = leftChildOfRoot;
 }
 
 static void InOrderTraversal(const pBiTreeNode root)
