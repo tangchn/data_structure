@@ -37,7 +37,7 @@ int main(void)
 {
 	pBiTreeNode root;
 	//cout<<"Please input the node data:"<<endl;
-	CreatBiTree(&root);
+	CreatAVL(&root);
 	InOrderTraversal(root);
 	RightRotation(&root);
 	InOrderTraversal(root);
@@ -74,16 +74,15 @@ static void CreatBiTree(pBiTreeNode* root)
 
 static void LeftRotation(pBiTreeNode* root)
 {
-	pBiTreeNode current, leftChildOfCurrent;
-	current = *root;
-	leftChildOfCurrent = current->lefChild;
-	current->leftChild = leftChildOfCurrent->rightChild;
-	leftChildOfCurrent->rightChild = current;
-	*root = leftChildOfCurrent;
+
 }
 static void RightRotation(pBiTreeNode* root)
 {
-	
+	pBiTreeNode current, leftChildOfRoot;
+	leftChildOfRoot = *root->leftChild;
+	*root->leftChild = leftChildOfRoot->rightChild;
+	leftChildOfRoot->rightChild = *root;
+	*root = leftChildOfRoot;
 }
 
 static void InOrderTraversal(const pBiTreeNode root)
