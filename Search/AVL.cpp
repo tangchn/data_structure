@@ -55,7 +55,7 @@ int main(void)
 	return 0;
 }
 
-static void CreatBiTree(pBiTreeNode* root)
+static void CreatAVL(pBiTreeNode* root)
 {
 	ElemType e;
 	cin>>e;
