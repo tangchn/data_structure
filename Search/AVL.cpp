@@ -67,8 +67,8 @@ static void CreatAVL(pBiTreeNode* root)
 	{
 		*root =  (BiTreeNode*)malloc(sizeof(BiTreeNode));
 		(*root)->data = e;
-		CreatBiTree(&(*root)->leftChild);
-		CreatBiTree(&(*root)->rightChild);
+		CreatAVL(&(*root)->leftChild);
+		CreatAVL(&(*root)->rightChild);
 	}
 }
 
