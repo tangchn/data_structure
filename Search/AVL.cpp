@@ -29,7 +29,7 @@ static void CreatAVL(pBiTreeNode* root);
 static void LeftRotation(pBiTreeNode* root);
 static void RightRotation(pBiTreeNode* root);
 static void LeftBalance(pBiTreeNode* root);
-static void RightBalance(pBiTreeNode* root)
+static void RightBalance(pBiTreeNode* root);
 static void InOrderTraversal(const pBiTreeNode root);
 static void PreOrderTraversal(const pBiTreeNode root);
 static Status SearchAVL(const pBiTreeNode root, ElemType key, pBiTreeNode father, pBiTreeNode* p);
@@ -98,14 +98,14 @@ static void RightRotation(pBiTreeNode* root)
 static void LeftBalance(pBiTreeNode* root)
 {
 	pBiTreeNode l, lr; /*lr means the right child of the left child of the root*/
-	lc = (*root)->leftChild;
+	l = (*root)->leftChild;
 	switch(l->BF)
 	{
 		case LH: /*LL Type, use rightRotation just once*/
 			(*root)->BF = EH;
 			l->BF = EH;
 			RightRotation(root);
-			break；
+			break;
 		case RH: /*LR Type, just leftRotation first, then use rightRotation*/
 			lr = l->rightChild;
 			switch(lr->BF)
@@ -140,8 +140,8 @@ static void RightBalance(pBiTreeNode* root)
 			(*root)->BF = EH;
 			r->BF = EH;
 			LeftRotation(root);
-			break；
-		case RH: /*RL Type, just leftRotation first, then use rightRotation*/
+			break;
+		case LH: /*RL Type, just leftRotation first, then use rightRotation*/
 			rl = r->leftChild;
 			switch(rl->BF)
 			{
