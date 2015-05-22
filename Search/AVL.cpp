@@ -4,7 +4,7 @@
 	> File Name: AVL.cpp
 	> Description: ...
 	> Created  Time: 2015-05-22. 10:46:18
-	> Modified Time: 2015-05-22. 10:46:18
+	> Modified Time: 2015-05-22. 14:46:18
  ************************************************************************/
 
 #include<iostream>
@@ -163,6 +163,75 @@ static void RightBalance(pBiTreeNode* root)
 			LeftRotation(root);
 			break;
 	}
+}
+
+static Status InsertAVL(pBiTreeNode* root, ElemType key, Status *taller)
+{
+	if(*root == NULL)
+	{
+		*root->= (pBiTreeNode)malloc(sizeof(BiTreeNode));
+		*root->data = key;
+		*root->leftChild = NULL;
+		*root->rightChild = NULL;
+		*root->BF = EH;
+		*taller = SUCCESS;
+	}else
+	{
+		if(key = (*root)->data) /*Do not insert new node if the same key exists*/
+		{
+			*taller = FAILURE;
+			return FAILURE;
+		}else if(e < *root->data) /*Search in the leftChild of the root*/
+		{
+			if(!InsertAVL(&(*root)->leftChild), key, taller)
+			{
+				return FAILURE;
+			}
+			if(*taller)
+			{
+				switch(*root->BF)
+				{
+					case LH:
+						LeftBalance(root);
+						*taller = FAILURE;
+						break;
+					case EH:
+						*root->BF = LH;
+						*taller = SUCCESS;
+						break;
+					case RH:
+						*root->BF = EH;
+						*taller = FAILURE;
+						break;
+				}
+			}
+		}else
+		{
+			if(!InsertAVL(&(*root)->rightChild), key, taller)
+			{
+				return FAILURE;
+			}
+			if(*taller)
+			{
+				switch(*root->BF)
+				{
+					case LH:
+						*root->BF = EH;
+						*taller = FAILURE;
+						break;
+					case EH:
+						*root->BF = RH;
+						*taller = SUCCESS;
+						break;
+					case RH:
+						RightBalance(root);
+						*taller = FAILURE;
+						break;
+				}
+			}
+		}
+	}
+	return SUCCESS;
 }
 
 static void InOrderTraversal(const pBiTreeNode root)
