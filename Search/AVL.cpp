@@ -15,6 +15,7 @@ using namespace std;
 
 typedef int ElemType;
 typedef enum {FAILURE,SUCCESS} Status;
+typedef enum {RH = -1, EH, LH} BalanceFactor;
 
 typedef struct _BiTreeNode
 {
@@ -24,10 +25,11 @@ typedef struct _BiTreeNode
 	int BF;
 }BiTreeNode, *pBiTreeNode;//指向BiTNode的指针
 
-
 static void CreatAVL(pBiTreeNode* root);
 static void LeftRotation(pBiTreeNode* root);
 static void RightRotation(pBiTreeNode* root);
+static void LeftBalance(pBiTreeNode* root);
+static void RightBalance(pBiTreeNode* root)
 static void InOrderTraversal(const pBiTreeNode root);
 static void PreOrderTraversal(const pBiTreeNode root);
 static Status SearchAVL(const pBiTreeNode root, ElemType key, pBiTreeNode father, pBiTreeNode* p);
@@ -77,19 +79,90 @@ static void CreatAVL(pBiTreeNode* root)
 
 static void LeftRotation(pBiTreeNode* root)
 {
-	pBiTreeNode rightChildOfRoot;
-	rightChildOfRoot = (*root)->rightChild;
-	(*root)->rightChild = rightChildOfRoot->leftChild;
-	rightChildOfRoot->leftChild = (*root);
-	(*root) = rightChildOfRoot;
+	pBiTreeNode r;
+	r = (*root)->rightChild;
+	(*root)->rightChild = r->leftChild;
+	r->leftChild = (*root);
+	(*root) = r;
 }
+
 static void RightRotation(pBiTreeNode* root)
 {
-	pBiTreeNode leftChildOfRoot;
-	leftChildOfRoot = (*root)->leftChild;
-	(*root)->leftChild = leftChildOfRoot->rightChild;
-	leftChildOfRoot->rightChild = (*root);
-	(*root) = leftChildOfRoot;
+	pBiTreeNode l;
+	l = (*root)->leftChild;
+	(*root)->leftChild = l->rightChild;
+	l->rightChild = (*root);
+	(*root) = l;
+}
+
+static void LeftBalance(pBiTreeNode* root)
+{
+	pBiTreeNode l, lr; /*lr means the right child of the left child of the root*/
+	lc = (*root)->leftChild;
+	switch(l->BF)
+	{
+		case LH: /*LL Type, use rightRotation just once*/
+			(*root)->BF = EH;
+			l->BF = EH;
+			RightRotation(root);
+			break；
+		case RH: /*LR Type, just leftRotation first, then use rightRotation*/
+			lr = l->rightChild;
+			switch(lr->BF)
+			{
+				case LH:
+					(*root)->BF = RH;
+					l->BF = EH;
+					break;
+				case EH:
+					(*root)->BF = EH;
+					l->BF = EH;
+					break;
+				case RH:
+					(*root)->BF = EH;
+					l->BF = LH;
+					break;
+			}
+			lr->BF = EH;
+			LeftRotation(&l);
+			RightRotation(root);
+			break;
+	}
+}
+
+static void RightBalance(pBiTreeNode* root)
+{
+	pBiTreeNode r, rl; /*lcr means the right child of the left child of the root*/
+	r = (*root)->rightChild;
+	switch(r->BF)
+	{
+		case RH: /*RR Type, use rightRotation just once*/
+			(*root)->BF = EH;
+			r->BF = EH;
+			LeftRotation(root);
+			break；
+		case RH: /*RL Type, just leftRotation first, then use rightRotation*/
+			rl = r->leftChild;
+			switch(rl->BF)
+			{
+				case LH:
+					(*root)->BF = EH;
+					r->BF = LH;
+					break;
+				case EH:
+					(*root)->BF = EH;
+					r->BF = EH;
+					break;
+				case RH:
+					(*root)->BF = LH;
+					r->BF = EH;
+					break;
+			}
+			rl->BF = EH;
+			RightRotation(&r);
+			LeftRotation(root);
+			break;
+	}
 }
 
 static void InOrderTraversal(const pBiTreeNode root)
