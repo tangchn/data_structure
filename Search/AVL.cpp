@@ -41,7 +41,7 @@ int main(void)
 	CreatAVL(&root);
 	InOrderTraversal(root);
 	PreOrderTraversal(root);
-	RightRotation(&root);
+	LeftRotation(&root);
 	InOrderTraversal(root);
 	PreOrderTraversal(root);
 	/*cout<<"Please input the number to be searched:"<<endl;
@@ -77,7 +77,11 @@ static void CreatAVL(pBiTreeNode* root)
 
 static void LeftRotation(pBiTreeNode* root)
 {
-
+	pBiTreeNode rightChildOfRoot;
+	rightChildOfRoot = (*root)->rightChild;
+	(*root)->rightChild = rightChildOfRoot->leftChild;
+	rightChildOfRoot->leftChild = (*root);
+	(*root) = rightChildOfRoot;
 }
 static void RightRotation(pBiTreeNode* root)
 {
