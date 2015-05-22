@@ -29,6 +29,7 @@ static void CreatAVL(pBiTreeNode* root);
 static void LeftRotation(pBiTreeNode* root);
 static void RightRotation(pBiTreeNode* root);
 static void InOrderTraversal(const pBiTreeNode root);
+static void PreOrderTraversal(const pBiTreeNode root);
 static Status SearchAVL(const pBiTreeNode root, ElemType key, pBiTreeNode father, pBiTreeNode* p);
 static Status InsertAVL(const pBiTreeNode root, ElemType key);
 static Status DeleteAVL(const pBiTreeNode root, ElemType key);
@@ -39,8 +40,10 @@ int main(void)
 	//cout<<"Please input the node data:"<<endl;
 	CreatAVL(&root);
 	InOrderTraversal(root);
+	PreOrderTraversal(root);
 	RightRotation(&root);
 	InOrderTraversal(root);
+	PreOrderTraversal(root);
 	/*cout<<"Please input the number to be searched:"<<endl;
 	ElemType e;
 	pBiTreeNode p;
@@ -107,6 +110,34 @@ static void InOrderTraversal(const pBiTreeNode root)
 			p = s.top();
 			s.pop();
 			cout<<p->data<<" ";
+			p = p->rightChild;
+		}
+	}
+	cout<<endl;
+}
+
+static void PreOrderTraversal(const pBiTreeNode root)
+{
+	if(root == NULL)
+	{
+		cout<<"The tree is empty"<<endl;
+		return;
+	}
+	cout<<"The accessing order when explits PreOrderTraversal:"<<endl;
+	stack<pBiTreeNode> s;
+	pBiTreeNode p = root;
+	while(!s.empty() || p != NULL)
+	{
+		while(p!= NULL)
+		{
+			s.push(p);
+			cout<<p->data<<" ";
+			p = p->leftChild;
+		}
+		if(!s.empty())
+		{
+			p = s.top();
+			s.pop();
 			p = p->rightChild;
 		}
 	}
