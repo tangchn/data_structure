@@ -39,11 +39,11 @@ int main(void)
 	pBiTreeNode root;
 	//cout<<"Please input the node data:"<<endl;
 	CreatAVL(&root);
-	InOrderTraversal(root);
 	PreOrderTraversal(root);
+	InOrderTraversal(root);
 	LeftRotation(&root);
-	InOrderTraversal(root);
 	PreOrderTraversal(root);
+	InOrderTraversal(root);
 	/*cout<<"Please input the number to be searched:"<<endl;
 	ElemType e;
 	pBiTreeNode p;
