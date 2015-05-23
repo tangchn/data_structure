@@ -11,7 +11,6 @@
 #include <stdlib.h>
 
 typedef char ElemType;
-typedef enum {Link, Thread} ThrFlag;
 typedef struct tagBiTreeNode
 {
     ElemType data;
@@ -75,7 +74,7 @@ static void PreOrderMorrisTraversal(pBiTreeNode root)
     	}else
     	{
     		for(temp = cur->leftChild; temp->rightChild != NULL && temp->rightChild != cur; temp = temp->rightChild);
-    		if(pre->rightChild == NULL)
+    		if(temp->rightChild == NULL)
     		{
     			temp->rightChild = cur;
     			printf("%c ", cur->data);
@@ -110,7 +109,7 @@ static void InOrderMorrisTraversal(pBiTreeNode root)
     	}else
     	{
     		for(temp = cur->leftChild; temp->rightChild != NULL && temp->rightChild != cur; temp = temp->rightChild);
-    		if(pre->rightChild == NULL)
+    		if(temp->rightChild == NULL)
     		{
     			temp->rightChild = cur;
     			cur = cur->leftChild;
