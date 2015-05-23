@@ -1,169 +1,132 @@
-Skip to content
-This repository  
-Explore
-Gist
-Blog
-Help
-@tangchn tangchn
- 
- Unwatch 1
-  Star 0
-  Fork 0
-tangchn/data_structure
- branch: master  data_structure/Tree/BiThreadTree.c
-@tangchntangchn 4 days ago update the mail address of all the files
-1 contributor
-RawBlameHistory     163 lines (137 sloc)  3.748 kb
+
 /*************************************************************************
-	> File Name: BiThreadTree.c
+	> File Name: MorrisTraversal.c
 	> Description: 线索二叉树的实现
 	> Author: Yves
 	> E-mail: tangye@hotmail.com
-	> Created Time: 2015-2-14. 16:35:51
+	> Created Time: 2015-5-23. 22:51:16
  ************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef char ElemType;
-
-typedef struct _BiTNode
+typedef enum {Link, Thread} ThrFlag;
+typedef struct tagBiTreeNode
 {
     ElemType data;
-    struct _BiTNode* leftChild;
-    Pointer_flag lTag;
-    struct _BiTNode* rightChild;
-    Pointer_flag rTag;
-}BiTNode, *pBiTNode;//指向BiTNode的指针
+    struct tagBiTreeNode* leftChild;
+    struct tagBiTreeNode* rightChild;
+}BiTreeNode, *pBiTreeNode;//指向BiTNode的指针
 
-void CreatBiTree(pBiTNode *p);//创建二叉树
-void InOrderTraverse(pBiTNode p);//中序遍历
-void Threading(pBiTNode p);//中序线索化
-void SetFrontPoint(pBiTNode *head, pBiTNode p);//线索化整个树，得到头节点
+static void CreatBiTree(pBiTreeNode *root);//创建二叉树
+static void PreOrderMorrisTraversal(pBiTreeNode root);//前序Morris遍历
+static void InOrderMorrisTraversal(pBiTreeNode root);//中序Morris遍历
+static void PostOrderMorrisTraversal(pBiTreeNode root);//后序Morris遍历
 
 pBiTNode pre;
 
 int main(void)
 {
-    pBiTNode root,head;
-    printf("请输入数据:  ");
+    pBiTreeNode root;
+    printf("Please input the node of the tree(preorder sequence): ");
     CreatBiTree(&root);
-
-    SetFrontPoint(&head,root);
-    printf("\n");
-
-    printf("中序遍历结果:  \n");
-    InOrderTraverse(head);
-    printf("\n");
-
+    printf("Traverse the tree in PreOrderMorrisTraversal\n");
+    PreOrderMorrisTraversal(root);
+    printf("Traverse the tree in InOrderMorrisTraversal\n");
+    InOrderMorrisTraversal(root);
+    printf("Traverse the tree in PostOrderMorrisTraversal\n");
+    PostOrderMorrisTraversal(root)
+    
     return 0;
 }
 
-void CreatBiTree(pBiTNode *p)
+static void CreatBiTree(pBiTreeNode *root)
 {
     ElemType c;
     scanf("%c",&c);
     if(c == '#')
     {
-        *p = NULL;
+        *root = NULL;
     }else
     {
-        *p = (BiTNode*)malloc(sizeof(BiTNode));
-        (*p)->data = c;
-        (*p)->lTag = Link;
-        (*p)->rTag = Link;
-        CreatBiTree(&(*p)->leftChild);
-        CreatBiTree(&(*p)->rightChild);
+        *root = (pBiTreeNode)malloc(sizeof(BiTreeNode));
+        (*root)->data = c;
+        CreatBiTree(&(*root)->leftChild);
+        CreatBiTree(&(*root)->rightChild);
     }
 }
 
-
-void InOrderTraverse(pBiTNode p)
+static void PreOrderMorrisTraversal(pBiTreeNode root)
 {
-    pBiTNode temp;
-    char c;
-    temp = p->leftChild;//指向根节点
-    while(temp != p)
+	if(root == NULL)
     {
-        //遍历到中序遍历的第一个节点
-        while(temp->lTag == Link)
-        {
-            temp = temp->leftChild;
-        }
-        c = temp->data;
-        printf("%c",temp->data);
-        while(temp->rTag == Thread && temp->rightChild != p)
-        {
-            temp = temp->rightChild;
-            printf("%c",temp->data);
-            c = temp->data;
-        }
-        temp = temp->rightChild; //p进入其右子树
+    	return;
+    }
+    pBiTreeNode cur,pre,temp;
+    cur = root;
+    while(cur != NULL)
+    {
+    	if(!cur->leftChild)
+    	{
+    		printf("%c ", cur->data);
+    		pre = cur;
+    		cur = cur->rightChild;
+    	}else
+    	{
+    		for(temp = cur->leftChild; temp->rightChild != NULL && temp->rightChild != cur; temp = temp->rightChild);
+    		if(pre->rightChild == NULL)
+    		{
+    			temp->rightChild = cur;
+    			printf("%c ", cur->data);
+    			pre = cur;
+    			cur = cur->leftChild;
+    		}else
+    		{
+    		
+    			temp->rightChild = NULL;
+    			cur = cur->rightChild;
+    		}
+    	}
     }
 }
 
 
-void Threading(pBiTNode p)
+static void InOrderMorrisTraversal(pBiTreeNode root)
 {
-    if(p)
+    if(root == NULL)
     {
-        Threading(p->leftChild);
-        if(!p->leftChild)
-        {
-            p->lTag = Thread;
-            p->leftChild = pre;//如果左孩子为空，则将域指针置为前驱
-        }
-        if(!pre->rightChild)
-        {
-            pre->rTag = Thread;
-            pre->rightChild = p;
-        }
-        pre = p;
-        Threading(p->rightChild);
+    	return;
+    }
+    pBiTreeNode cur,pre,temp;
+    cur = root;
+    while(cur != NULL)
+    {
+    	if(!cur->leftChild)
+    	{
+    		printf("%c ", cur->data);
+    		pre = cur;
+    		cur = cur->rightChild;
+    	}else
+    	{
+    		for(temp = cur->leftChild; temp->rightChild != NULL && temp->rightChild != cur; temp = temp->rightChild);
+    		if(pre->rightChild == NULL)
+    		{
+    			temp->rightChild = cur;
+    			cur = cur->leftChild;
+    		}else
+    		{
+    			printf("%c ", cur->data);
+    			temp->rightChild = NULL;
+    			pre = cur;
+    			cur = cur->rightChild;
+    		}
+    	}
     }
 }
 
-void SetFrontPoint(pBiTNode *head, pBiTNode p)
+static void PostOrderMorrisTraversal(pBiTreeNode root)
 {
-    /*(*head) = (pBiTNode)malloc(sizeof(BiTNode));
-    (*head)->rTag = Link;
-    (*head)->rightChild = (*head);
-    if(!p)
-    {
-        (*head)->lTag = Link;
-        (*head)->leftChild = (*head);
-    }else
-    {
-        (*head)->leftChild = p;
-        (*head)->lTag = Link;
-        pre = *head;
-        Threading(p);
-        pre->rTag = Thread;
-        pre->rightChild = *head; //最后一个节点指向头节点
-        (*head)->rightChild = pre; //头节点右孩子指向最后一个节点
-    }*/
-
-
-    (*head) = (pBiTNode)malloc(sizeof(BiTNode));
-    (*head)->rightChild = *head;
-    (*head)->rTag = Thread;
-
-    if(!p)      //如果为NULL
-    {
-        (*head)->leftChild = *head;
-        (*head)->lTag = Link;
-    }
-    else
-    {
-        pre = *head;
-        (*head)->leftChild = p;        //第一步
-        (*head)->lTag = Link;
-        Threading(p);         //找到最后一个结点
-        pre->rightChild = *head;        //第四步
-        pre->rTag = Thread;
-        (*head)->rightChild = pre;      //第二步
-    }
+	
 }
 
-Status API Training Shop Blog About
-© 2015 GitHub, Inc. Terms Privacy Security Contact
